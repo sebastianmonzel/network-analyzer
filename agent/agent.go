@@ -1,4 +1,4 @@
-package main
+package agent
 
 import (
 	"encoding/json"
@@ -17,7 +17,7 @@ import (
 
 const listenPort = ":8081"
 const checkTarget = "8.8.8.8:53"
-const agentVersion = "1.0"
+const AgentVersion = "1.0"
 
 var cachedServerURL = "http://localhost:8080"
 var serverMutex sync.RWMutex
@@ -182,8 +182,8 @@ func checkForUpdate() {
 		return
 	}
 
-	if result.Version != "" && result.Version != agentVersion {
-		fmt.Printf("🔄 Neue Agenten-Version %s entdeckt (aktuell: %s). Starte Update...\n", result.Version, agentVersion)
+	if result.Version != "" && result.Version != AgentVersion {
+		fmt.Printf("🔄 Neue Agenten-Version %s entdeckt (aktuell: %s). Starte Update...\n", result.Version, AgentVersion)
 
 		binResp, err := http.Get(serverURL + "/api/agent-binary")
 		if err != nil {
@@ -247,8 +247,12 @@ func measureQuality() {
 	minL, maxL := latencies[0], latencies[0]
 	for _, l := range latencies {
 		total += l
-		if l < minL { minL = l }
-		if l > maxL { maxL = l }
+		if l < minL {
+			minL = l
+		}
+		if l > maxL {
+			maxL = l
+		}
 	}
 
 	avg := float64((total / time.Duration(len(latencies))).Milliseconds())
@@ -263,7 +267,7 @@ func measureQuality() {
 	dataMutex.Unlock()
 }
 
-func main() {
+func Start() {
 	hostname, _ := os.Hostname()
 	myIP := getLocalIP()
 
@@ -272,7 +276,7 @@ func main() {
 		Hostname:    hostname,
 		IP:          myIP,
 		AccessPoint: "LAN / Unbekannt",
-		Version:     agentVersion,
+		Version:     AgentVersion,
 	}
 	dataMutex.Unlock()
 
@@ -311,6 +315,6 @@ func main() {
 		json.NewEncoder(w).Encode(currentData)
 	})
 
-	fmt.Printf("🚀 Agent v%s läuft auf %s%s\n", agentVersion, myIP, listenPort)
+	fmt.Printf("🚀 Agent v%s läuft auf %s%s\n", AgentVersion, myIP, listenPort)
 	http.ListenAndServe(listenPort, nil)
 }

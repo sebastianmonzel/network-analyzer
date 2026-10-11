@@ -1,4 +1,4 @@
-package main
+package analyzer
 
 import (
 	"bytes"
@@ -149,19 +149,13 @@ func PrintTree(node *NetworkNode, prefix string, isLast bool) {
 	}
 }
 
-func main() {
-	// ==========================================
-	// FEATURE TOGGLE: Nur aktive Geräte anzeigen?
-	// ==========================================
-	showOnlyActive := true
-
-	boxIP := "192.168.178.1"
+func BuildMeshTree(boxIP string, showOnlyActive bool) *NetworkNode {
 	fmt.Println("Verbinde mit FRITZ!Box...")
 
 	boxHosts, err := fetchHostsFromDevice(boxIP)
 	if err != nil {
 		fmt.Printf("Fehler beim Abrufen der FRITZ!Box Hosts: %v\n", err)
-		return
+		return nil
 	}
 
 	root := &NetworkNode{
@@ -239,7 +233,14 @@ func main() {
 		seenIPs[client.IP] = true
 	}
 
-	// Ausgabe
+	return root
+}
+
+func PrintMeshTree(root *NetworkNode, showOnlyActive bool) {
+	if root == nil {
+		return
+	}
+
 	toggleStatus := "Aus"
 	if showOnlyActive {
 		toggleStatus = "An (nur aktive Geräte)"

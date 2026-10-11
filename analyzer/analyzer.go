@@ -1,4 +1,4 @@
-package main
+package analyzer
 
 import (
 	"bytes"
@@ -386,7 +386,7 @@ func fetchAgentData(ip string) {
 	}
 }
 
-func runScanCycle(ipsToScan []string, routerIP string, networkState map[string]ScanResult, missCounts map[string]int, scanType string, isInitial bool) []string {
+func RunScanCycle(ipsToScan []string, routerIP string, networkState map[string]ScanResult, missCounts map[string]int, scanType string, isInitial bool) []string {
 	var wg sync.WaitGroup
 	results := make(chan ScanResult, len(ipsToScan))
 	currentScan := make(map[string]ScanResult)
@@ -572,7 +572,7 @@ func runScanCycle(ipsToScan []string, routerIP string, networkState map[string]S
 const currentAgentVersion = "1.0"
 const agentBinaryFile = "agent_update" // Unter Windows: "agent_update.exe"
 
-func startWebServer() {
+func StartWebServer() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -617,51 +617,10 @@ func startWebServer() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func main() {
+func LoadStatsFromFile() {
 	loadStatsFromFile()
-
-	subnet, err := getLocalSubnet()
-	if err != nil {
-		log.Fatalf("Fehler bei der Ermittlung des Subnetzes: %v\n", err)
-	}
-
-	routerIP := subnet + "1"
-
-	fmt.Printf("Lokales Subnetz %s0/24 erkannt.\n", subnet)
-	fmt.Printf("Nutze Router %s als DNS-Server.\n", routerIP)
-
-	var allIPs []string
-	for i := 1; i <= 254; i++ {
-		allIPs = append(allIPs, fmt.Sprintf("%s%d", subnet, i))
-	}
-
-	networkState := make(map[string]ScanResult)
-	missCounts := make(map[string]int)
-
-	go startWebServer()
-
-	knownIPs := runScanCycle(allIPs, routerIP, networkState, missCounts, "INITIALER KOMPLETT-SCAN", true)
-
-	fmt.Printf("\n>>> Überwachung gestartet.\n")
-	fmt.Println(">>> - Schnellprüfung:  alle 30 Sekunden")
-	fmt.Println(">>> - Komplett-Scan:   alle 5 Minuten")
-	fmt.Println(">>> - Dynamische Agenten-Erkennung & Updates: Aktiv")
-	fmt.Println(">>> (Abbruch mit Strg+C)")
-
-	scanInterval := 30 * time.Second
-	ticker := time.NewTicker(scanInterval)
-	defer ticker.Stop()
-
-	ticks := 0
-	for range ticker.C {
-		ticks++
-		if ticks >= 10 {
-			knownIPs = runScanCycle(allIPs, routerIP, networkState, missCounts, "5-MINUTEN KOMPLETT-SCAN", false)
-			ticks = 0
-		} else {
-			knownIPs = runScanCycle(knownIPs, routerIP, networkState, missCounts, "SCHNELL-PRÜFUNG", false)
-		}
-	}
 }
 
-// --- HTML / JS FRONTEND ---
+func GetLocalSubnet() (string, error) {
+	return getLocalSubnet()
+}
