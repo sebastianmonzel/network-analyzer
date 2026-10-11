@@ -1,0 +1,1038 @@
+{
+  "devices": [
+    {
+      "ip": "192.168.178.1",
+      "mac": "04:b4:fe:10:fc:ed",
+      "hostname": "fritz.box",
+      "port": "Web (HTTP)",
+      "latency_ms": 8,
+      "jitter_ms": 2,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.20",
+      "mac": "0c:72:74:66:10:78",
+      "hostname": "AVM1220-4661078",
+      "port": "Ping (ICMP)",
+      "latency_ms": 129,
+      "jitter_ms": 0,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.21",
+      "mac": "12:72:74:6c:66:48",
+      "hostname": "fritz-powerlinewintergarten",
+      "port": "Web (HTTP)",
+      "latency_ms": 16,
+      "jitter_ms": 36,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.23",
+      "mac": "-",
+      "hostname": "host.docker.internal",
+      "port": "Web (HTTP Alt)",
+      "latency_ms": 4,
+      "jitter_ms": 19,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.25",
+      "mac": "b0:4a:39:0b:29:b5",
+      "hostname": "Unbekannt",
+      "port": "Ping (ICMP)",
+      "latency_ms": 146,
+      "jitter_ms": 0,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.28",
+      "mac": "2c:71:ff:9c:67:f0",
+      "hostname": "amazon-e3c67555b",
+      "port": "Ping (ICMP)",
+      "latency_ms": 178,
+      "jitter_ms": 0,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.31",
+      "mac": "ec:b5:fa:15:e7:91",
+      "hostname": "huebridge",
+      "port": "Web (HTTP)",
+      "latency_ms": 16,
+      "jitter_ms": 32,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.34",
+      "mac": "f4:a9:97:43:07:67",
+      "hostname": "canondrucker",
+      "port": "Web (HTTP)",
+      "latency_ms": 16,
+      "jitter_ms": 9,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.37",
+      "mac": "3c:71:bf:27:f7:5b",
+      "hostname": "tas-27F75B-5979-Stehlampe",
+      "port": "Web (HTTP)",
+      "latency_ms": 10,
+      "jitter_ms": 3,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.38",
+      "mac": "22:37:12:25:c4:40",
+      "hostname": "fritz-repeaterog",
+      "port": "Web (HTTP)",
+      "latency_ms": 5,
+      "jitter_ms": 3,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.39",
+      "mac": "56:e6:36:e0:58:00",
+      "hostname": "fritz-powerlinewohnzimmer",
+      "port": "Web (HTTP)",
+      "latency_ms": 8,
+      "jitter_ms": 9,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.41",
+      "mac": "98:cc:f3:b0:6e:fd",
+      "hostname": "192-168-178-41",
+      "port": "Google Chromecast",
+      "latency_ms": 11,
+      "jitter_ms": 3,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.58",
+      "mac": "b0:4a:39:a0:0a:3b",
+      "hostname": "roborock-vacuum-a75",
+      "port": "Ping (ICMP)",
+      "latency_ms": 159,
+      "jitter_ms": 0,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.70",
+      "mac": "7c:c6:b6:aa:32:da",
+      "hostname": "Nuki-433C2BEC",
+      "port": "Ping (ICMP)",
+      "latency_ms": 183,
+      "jitter_ms": 0,
+      "status": "Fehlt (1/5)"
+    },
+    {
+      "ip": "192.168.178.72",
+      "mac": "3c:6a:d2:91:0f:7a",
+      "hostname": "P110",
+      "port": "Web (HTTP)",
+      "latency_ms": 10,
+      "jitter_ms": 10,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.75",
+      "mac": "3c:6a:d2:90:9f:7c",
+      "hostname": "P110",
+      "port": "Web (HTTP)",
+      "latency_ms": 7,
+      "jitter_ms": 4,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.80",
+      "mac": "3c:71:bf:27:ef:4b",
+      "hostname": "tas-27F75B-3915-kuechenlampe",
+      "port": "Web (HTTP)",
+      "latency_ms": 13,
+      "jitter_ms": 9,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.86",
+      "mac": "12:c5:74:4f:d1:d3",
+      "hostname": "fritz-repeaterstudio",
+      "port": "Web (HTTP)",
+      "latency_ms": 8,
+      "jitter_ms": 2,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.97",
+      "mac": "00:1a:22:1b:3a:79",
+      "hostname": "00003DD89A92548",
+      "port": "Ping (ICMP)",
+      "latency_ms": 193,
+      "jitter_ms": 0,
+      "status": "Online"
+    },
+    {
+      "ip": "192.168.178.166",
+      "mac": "-",
+      "hostname": "Unbekannt",
+      "port": "Ping (ICMP)",
+      "latency_ms": 584,
+      "jitter_ms": 0,
+      "status": "Fehlt (2/5)"
+    },
+    {
+      "ip": "192.168.178.168",
+      "mac": "-",
+      "hostname": "Unbekannt",
+      "port": "Ping (ICMP)",
+      "latency_ms": 343,
+      "jitter_ms": 0,
+      "status": "Fehlt (3/5)"
+    }
+  ],
+  "history": [
+    {
+      "time": "10:44:58",
+      "active": 19,
+      "avg_latency": 50,
+      "wan_latency_ms": 0,
+      "wan_jitter_ms": 0
+    },
+    {
+      "time": "10:45:28",
+      "active": 26,
+      "avg_latency": 271,
+      "wan_latency_ms": 0,
+      "wan_jitter_ms": 0
+    },
+    {
+      "time": "10:48:23",
+      "active": 55,
+      "avg_latency": 456,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:49:02",
+      "active": 19,
+      "avg_latency": 30,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:49:32",
+      "active": 18,
+      "avg_latency": 18,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:50:02",
+      "active": 19,
+      "avg_latency": 29,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:50:32",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 10,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "10:51:02",
+      "active": 19,
+      "avg_latency": 28,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "10:51:32",
+      "active": 20,
+      "avg_latency": 41,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "10:52:02",
+      "active": 19,
+      "avg_latency": 21,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "10:52:32",
+      "active": 19,
+      "avg_latency": 23,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "10:53:02",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:53:43",
+      "active": 89,
+      "avg_latency": 378,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "10:54:03",
+      "active": 26,
+      "avg_latency": 91,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "10:54:33",
+      "active": 20,
+      "avg_latency": 114,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "10:55:13",
+      "active": 23,
+      "avg_latency": 109,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "10:55:32",
+      "active": 40,
+      "avg_latency": 170,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "10:56:09",
+      "active": 57,
+      "avg_latency": 454,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "10:56:48",
+      "active": 17,
+      "avg_latency": 30,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "10:57:18",
+      "active": 17,
+      "avg_latency": 27,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "10:57:48",
+      "active": 19,
+      "avg_latency": 35,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "10:58:18",
+      "active": 19,
+      "avg_latency": 29,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "10:58:48",
+      "active": 18,
+      "avg_latency": 36,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "10:59:17",
+      "active": 17,
+      "avg_latency": 49,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "10:59:48",
+      "active": 18,
+      "avg_latency": 38,
+      "wan_latency_ms": 21,
+      "wan_jitter_ms": 50
+    },
+    {
+      "time": "11:00:18",
+      "active": 19,
+      "avg_latency": 36,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:00:47",
+      "active": 19,
+      "avg_latency": 31,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:01:21",
+      "active": 48,
+      "avg_latency": 243,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:01:48",
+      "active": 18,
+      "avg_latency": 27,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 27
+    },
+    {
+      "time": "11:02:18",
+      "active": 18,
+      "avg_latency": 21,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:02:48",
+      "active": 20,
+      "avg_latency": 40,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "11:03:17",
+      "active": 19,
+      "avg_latency": 31,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "11:03:48",
+      "active": 20,
+      "avg_latency": 37,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "11:04:17",
+      "active": 19,
+      "avg_latency": 38,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "11:04:48",
+      "active": 20,
+      "avg_latency": 35,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:05:17",
+      "active": 20,
+      "avg_latency": 24,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:05:47",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:06:20",
+      "active": 101,
+      "avg_latency": 560,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:06:48",
+      "active": 34,
+      "avg_latency": 148,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 26
+    },
+    {
+      "time": "11:07:18",
+      "active": 31,
+      "avg_latency": 113,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:07:48",
+      "active": 21,
+      "avg_latency": 73,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:08:19",
+      "active": 36,
+      "avg_latency": 79,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:08:48",
+      "active": 36,
+      "avg_latency": 145,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:09:18",
+      "active": 28,
+      "avg_latency": 108,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:09:48",
+      "active": 19,
+      "avg_latency": 29,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "11:10:18",
+      "active": 20,
+      "avg_latency": 66,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "11:10:48",
+      "active": 20,
+      "avg_latency": 44,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:11:40",
+      "active": 59,
+      "avg_latency": 205,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "11:12:19",
+      "active": 18,
+      "avg_latency": 20,
+      "wan_latency_ms": 24,
+      "wan_jitter_ms": 24
+    },
+    {
+      "time": "11:12:49",
+      "active": 19,
+      "avg_latency": 41,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 0
+    },
+    {
+      "time": "11:13:19",
+      "active": 18,
+      "avg_latency": 37,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:13:49",
+      "active": 20,
+      "avg_latency": 54,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "11:14:19",
+      "active": 19,
+      "avg_latency": 28,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:14:48",
+      "active": 19,
+      "avg_latency": 27,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:15:18",
+      "active": 19,
+      "avg_latency": 28,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:15:48",
+      "active": 19,
+      "avg_latency": 27,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 18
+    },
+    {
+      "time": "11:16:18",
+      "active": 20,
+      "avg_latency": 36,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:16:59",
+      "active": 72,
+      "avg_latency": 445,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:17:28",
+      "active": 21,
+      "avg_latency": 37,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:17:58",
+      "active": 22,
+      "avg_latency": 74,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:18:28",
+      "active": 22,
+      "avg_latency": 60,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:18:49",
+      "active": 18,
+      "avg_latency": 28,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 0
+    },
+    {
+      "time": "11:19:28",
+      "active": 20,
+      "avg_latency": 41,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "11:19:58",
+      "active": 21,
+      "avg_latency": 49,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "11:20:28",
+      "active": 21,
+      "avg_latency": 37,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:20:48",
+      "active": 21,
+      "avg_latency": 35,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:21:28",
+      "active": 21,
+      "avg_latency": 33,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "11:21:51",
+      "active": 57,
+      "avg_latency": 397,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:22:28",
+      "active": 21,
+      "avg_latency": 50,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "11:22:49",
+      "active": 19,
+      "avg_latency": 28,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "11:23:19",
+      "active": 20,
+      "avg_latency": 31,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "13:30:12",
+      "active": 34,
+      "avg_latency": 144,
+      "wan_latency_ms": 47,
+      "wan_jitter_ms": 71
+    },
+    {
+      "time": "13:30:30",
+      "active": 29,
+      "avg_latency": 94,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 25
+    },
+    {
+      "time": "13:30:58",
+      "active": 22,
+      "avg_latency": 34,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "13:31:28",
+      "active": 22,
+      "avg_latency": 29,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "13:31:49",
+      "active": 14,
+      "avg_latency": 11,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "13:32:28",
+      "active": 21,
+      "avg_latency": 37,
+      "wan_latency_ms": 10,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "13:32:59",
+      "active": 67,
+      "avg_latency": 202,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "13:33:28",
+      "active": 23,
+      "avg_latency": 61,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "13:33:58",
+      "active": 19,
+      "avg_latency": 21,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "13:34:28",
+      "active": 20,
+      "avg_latency": 22,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "13:34:58",
+      "active": 23,
+      "avg_latency": 61,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "13:35:28",
+      "active": 23,
+      "avg_latency": 44,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "13:35:58",
+      "active": 22,
+      "avg_latency": 31,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "13:36:18",
+      "active": 20,
+      "avg_latency": 27,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "13:36:58",
+      "active": 21,
+      "avg_latency": 29,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "13:37:28",
+      "active": 22,
+      "avg_latency": 22,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "13:37:59",
+      "active": 97,
+      "avg_latency": 608,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "13:38:28",
+      "active": 20,
+      "avg_latency": 69,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "13:38:58",
+      "active": 21,
+      "avg_latency": 44,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "13:39:29",
+      "active": 21,
+      "avg_latency": 48,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "13:39:58",
+      "active": 21,
+      "avg_latency": 72,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "03:36:58",
+      "active": 19,
+      "avg_latency": 511,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 15
+    },
+    {
+      "time": "03:37:08",
+      "active": 19,
+      "avg_latency": 76,
+      "wan_latency_ms": 30,
+      "wan_jitter_ms": 38
+    },
+    {
+      "time": "03:37:19",
+      "active": 20,
+      "avg_latency": 104,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "03:37:49",
+      "active": 20,
+      "avg_latency": 37,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 21
+    },
+    {
+      "time": "03:38:18",
+      "active": 19,
+      "avg_latency": 36,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "03:38:54",
+      "active": 21,
+      "avg_latency": 79,
+      "wan_latency_ms": 20,
+      "wan_jitter_ms": 20
+    },
+    {
+      "time": "03:39:18",
+      "active": 21,
+      "avg_latency": 57,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "03:39:48",
+      "active": 20,
+      "avg_latency": 43,
+      "wan_latency_ms": 54,
+      "wan_jitter_ms": 53
+    },
+    {
+      "time": "03:40:19",
+      "active": 20,
+      "avg_latency": 42,
+      "wan_latency_ms": 131,
+      "wan_jitter_ms": 325
+    },
+    {
+      "time": "03:40:48",
+      "active": 21,
+      "avg_latency": 30,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "03:41:18",
+      "active": 21,
+      "avg_latency": 28,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "19:58:55",
+      "active": 17,
+      "avg_latency": 571,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "19:59:19",
+      "active": 18,
+      "avg_latency": 611,
+      "wan_latency_ms": 63,
+      "wan_jitter_ms": 158
+    },
+    {
+      "time": "19:59:37",
+      "active": 18,
+      "avg_latency": 501,
+      "wan_latency_ms": 37,
+      "wan_jitter_ms": 46
+    },
+    {
+      "time": "20:00:03",
+      "active": 19,
+      "avg_latency": 146,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 17
+    },
+    {
+      "time": "20:00:40",
+      "active": 18,
+      "avg_latency": 161,
+      "wan_latency_ms": 72,
+      "wan_jitter_ms": 66
+    },
+    {
+      "time": "20:00:50",
+      "active": 18,
+      "avg_latency": 443,
+      "wan_latency_ms": 98,
+      "wan_jitter_ms": 53
+    },
+    {
+      "time": "20:01:26",
+      "active": 18,
+      "avg_latency": 115,
+      "wan_latency_ms": 274,
+      "wan_jitter_ms": 78
+    },
+    {
+      "time": "20:02:08",
+      "active": 19,
+      "avg_latency": 233,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 19
+    },
+    {
+      "time": "20:02:35",
+      "active": 19,
+      "avg_latency": 54,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "20:02:59",
+      "active": 19,
+      "avg_latency": 153,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "20:03:30",
+      "active": 19,
+      "avg_latency": 74,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "20:04:01",
+      "active": 19,
+      "avg_latency": 69,
+      "wan_latency_ms": 36,
+      "wan_jitter_ms": 30
+    },
+    {
+      "time": "20:04:19",
+      "active": 18,
+      "avg_latency": 36,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "20:05:13",
+      "active": 21,
+      "avg_latency": 96,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 11
+    },
+    {
+      "time": "20:05:55",
+      "active": 20,
+      "avg_latency": 105,
+      "wan_latency_ms": 43,
+      "wan_jitter_ms": 40
+    },
+    {
+      "time": "20:06:23",
+      "active": 19,
+      "avg_latency": 37,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 6
+    },
+    {
+      "time": "20:06:52",
+      "active": 18,
+      "avg_latency": 52,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 2
+    }
+  ],
+  "agents": {},
+  "current_wan_latency": 14,
+  "current_wan_jitter": 2
+}

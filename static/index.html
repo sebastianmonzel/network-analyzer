@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokales Netzwerk Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>🌐 Lokales Netzwerk & Repeater Dashboard</h1>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3>Aktive Geräte & Internet-Latenz</h3>
+            <canvas id="deviceChart"></canvas>
+        </div>
+        <div class="card">
+            <h3>Latenzvergleich: Lokal vs. Internet (WAN)</h3>
+            <canvas id="latencyChart"></canvas>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px; border-left: 4px solid #2196f3;">
+        <h3 style="margin-top: 0;">🛰️ Aktive Software-Agenten & Repeater-Wege</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Letztes Update</th>
+                    <th>IP-Adresse</th>
+                    <th>Hostname</th>
+                    <th>Version</th>
+                    <th>Übertragungsweg (Repeater)</th>
+                    <th>Latenz (Internet)</th>
+                    <th>Jitter</th>
+                    <th>WLAN Signal</th>
+                </tr>
+            </thead>
+            <tbody id="agentTable">
+                <tr><td colspan="8" style="color: #888; font-style: italic;">Warte auf Agenten (Port 8081)...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>Alle erkannten Geräte im Subnetz</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>IP-Adresse / Webinterface</th>
+                    <th>MAC-Adresse</th>
+                    <th>Hostname</th>
+                    <th>Erkannter Dienst</th>
+                    <th>Latenz</th>
+                    <th>Jitter</th>
+                </tr>
+            </thead>
+            <tbody id="deviceTable">
+                <tr><td colspan="7">Lade Daten...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
