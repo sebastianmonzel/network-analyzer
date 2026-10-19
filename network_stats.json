@@ -5,72 +5,99 @@
       "mac": "04:b4:fe:10:fc:ed",
       "hostname": "fritz.box",
       "port": "Web (HTTP)",
-      "latency_ms": 8,
-      "jitter_ms": 2,
-      "status": "Online"
+      "latency_ms": 9,
+      "jitter_ms": 4,
+      "status": "Online",
+      "connected_via": "Unbekannt",
+      "mesh_icon": "❓"
     },
     {
       "ip": "192.168.178.20",
       "mac": "0c:72:74:66:10:78",
       "hostname": "AVM1220-4661078",
       "port": "Ping (ICMP)",
-      "latency_ms": 129,
+      "latency_ms": 39,
       "jitter_ms": 0,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.21",
       "mac": "12:72:74:6c:66:48",
       "hostname": "fritz-powerlinewintergarten",
       "port": "Web (HTTP)",
-      "latency_ms": 16,
-      "jitter_ms": 36,
-      "status": "Online"
+      "latency_ms": 18,
+      "jitter_ms": 37,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.23",
       "mac": "-",
       "hostname": "host.docker.internal",
       "port": "Web (HTTP Alt)",
-      "latency_ms": 4,
-      "jitter_ms": 19,
-      "status": "Online"
+      "latency_ms": 0,
+      "jitter_ms": 0,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.25",
       "mac": "b0:4a:39:0b:29:b5",
       "hostname": "Unbekannt",
       "port": "Ping (ICMP)",
-      "latency_ms": 146,
+      "latency_ms": 125,
       "jitter_ms": 0,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "fritz-repeaterog",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.28",
       "mac": "2c:71:ff:9c:67:f0",
       "hostname": "amazon-e3c67555b",
       "port": "Ping (ICMP)",
-      "latency_ms": 178,
+      "latency_ms": 141,
       "jitter_ms": 0,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "fritz-repeaterog",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.31",
       "mac": "ec:b5:fa:15:e7:91",
       "hostname": "huebridge",
       "port": "Web (HTTP)",
-      "latency_ms": 16,
-      "jitter_ms": 32,
-      "status": "Online"
+      "latency_ms": 8,
+      "jitter_ms": 8,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewintergarten",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.34",
       "mac": "f4:a9:97:43:07:67",
       "hostname": "canondrucker",
       "port": "Web (HTTP)",
-      "latency_ms": 16,
-      "jitter_ms": 9,
-      "status": "Online"
+      "latency_ms": 8,
+      "jitter_ms": 5,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
+    },
+    {
+      "ip": "192.168.178.36",
+      "mac": "ba:73:58:82:b6:5c",
+      "hostname": "iPhone",
+      "port": "Ping (ICMP)",
+      "latency_ms": 164,
+      "jitter_ms": 0,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.37",
@@ -79,960 +106,1280 @@
       "port": "Web (HTTP)",
       "latency_ms": 10,
       "jitter_ms": 3,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "FRITZ!Box",
+      "mesh_icon": "🌐"
     },
     {
       "ip": "192.168.178.38",
       "mac": "22:37:12:25:c4:40",
       "hostname": "fritz-repeaterog",
       "port": "Web (HTTP)",
-      "latency_ms": 5,
-      "jitter_ms": 3,
-      "status": "Online"
+      "latency_ms": 12,
+      "jitter_ms": 4,
+      "status": "Online",
+      "connected_via": "fritz-repeaterstudio",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.39",
       "mac": "56:e6:36:e0:58:00",
       "hostname": "fritz-powerlinewohnzimmer",
       "port": "Web (HTTP)",
-      "latency_ms": 8,
-      "jitter_ms": 9,
-      "status": "Online"
+      "latency_ms": 3,
+      "jitter_ms": 2,
+      "status": "Online",
+      "connected_via": "FRITZ!Box",
+      "mesh_icon": "🌐"
     },
     {
       "ip": "192.168.178.41",
       "mac": "98:cc:f3:b0:6e:fd",
       "hostname": "192-168-178-41",
       "port": "Google Chromecast",
-      "latency_ms": 11,
-      "jitter_ms": 3,
-      "status": "Online"
+      "latency_ms": 7,
+      "jitter_ms": 4,
+      "status": "Online",
+      "connected_via": "fritz-repeaterog",
+      "mesh_icon": "📡"
+    },
+    {
+      "ip": "192.168.178.54",
+      "mac": "5a:60:31:ca:a6:e5",
+      "hostname": "A55-von-Sabrina",
+      "port": "Ping (ICMP)",
+      "latency_ms": 134,
+      "jitter_ms": 0,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.58",
       "mac": "b0:4a:39:a0:0a:3b",
       "hostname": "roborock-vacuum-a75",
       "port": "Ping (ICMP)",
-      "latency_ms": 159,
+      "latency_ms": 125,
       "jitter_ms": 0,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "fritz-powerlinewintergarten",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.70",
       "mac": "7c:c6:b6:aa:32:da",
       "hostname": "Nuki-433C2BEC",
       "port": "Ping (ICMP)",
-      "latency_ms": 183,
+      "latency_ms": 213,
       "jitter_ms": 0,
-      "status": "Fehlt (1/5)"
+      "status": "Fehlt (1/5)",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.72",
       "mac": "3c:6a:d2:91:0f:7a",
       "hostname": "P110",
       "port": "Web (HTTP)",
-      "latency_ms": 10,
+      "latency_ms": 14,
       "jitter_ms": 10,
-      "status": "Online"
+      "status": "Online",
+      "connected_via": "fritz-repeaterog",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.75",
       "mac": "3c:6a:d2:90:9f:7c",
       "hostname": "P110",
       "port": "Web (HTTP)",
-      "latency_ms": 7,
-      "jitter_ms": 4,
-      "status": "Online"
+      "latency_ms": 5,
+      "jitter_ms": 5,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.80",
       "mac": "3c:71:bf:27:ef:4b",
       "hostname": "tas-27F75B-3915-kuechenlampe",
       "port": "Web (HTTP)",
-      "latency_ms": 13,
-      "jitter_ms": 9,
-      "status": "Online"
+      "latency_ms": 15,
+      "jitter_ms": 21,
+      "status": "Online",
+      "connected_via": "fritz-powerlinewintergarten",
+      "mesh_icon": "📡"
     },
     {
       "ip": "192.168.178.86",
       "mac": "12:c5:74:4f:d1:d3",
       "hostname": "fritz-repeaterstudio",
       "port": "Web (HTTP)",
-      "latency_ms": 8,
-      "jitter_ms": 2,
-      "status": "Online"
+      "latency_ms": 14,
+      "jitter_ms": 9,
+      "status": "Online",
+      "connected_via": "FRITZ!Box",
+      "mesh_icon": "🌐"
     },
     {
       "ip": "192.168.178.97",
       "mac": "00:1a:22:1b:3a:79",
       "hostname": "00003DD89A92548",
       "port": "Ping (ICMP)",
-      "latency_ms": 193,
+      "latency_ms": 39,
       "jitter_ms": 0,
-      "status": "Online"
-    },
-    {
-      "ip": "192.168.178.166",
-      "mac": "-",
-      "hostname": "Unbekannt",
-      "port": "Ping (ICMP)",
-      "latency_ms": 584,
-      "jitter_ms": 0,
-      "status": "Fehlt (2/5)"
-    },
-    {
-      "ip": "192.168.178.168",
-      "mac": "-",
-      "hostname": "Unbekannt",
-      "port": "Ping (ICMP)",
-      "latency_ms": 343,
-      "jitter_ms": 0,
-      "status": "Fehlt (3/5)"
+      "status": "Fehlt (1/5)",
+      "connected_via": "fritz-powerlinewohnzimmer",
+      "mesh_icon": "📡"
     }
   ],
   "history": [
     {
-      "time": "10:44:58",
-      "active": 19,
-      "avg_latency": 50,
-      "wan_latency_ms": 0,
-      "wan_jitter_ms": 0
-    },
-    {
-      "time": "10:45:28",
-      "active": 26,
-      "avg_latency": 271,
-      "wan_latency_ms": 0,
-      "wan_jitter_ms": 0
-    },
-    {
-      "time": "10:48:23",
-      "active": 55,
-      "avg_latency": 456,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "10:49:02",
-      "active": 19,
-      "avg_latency": 30,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "10:49:32",
+      "time": "20:06:33",
       "active": 18,
-      "avg_latency": 18,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 1
+      "avg_latency": 25,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 13
     },
     {
-      "time": "10:50:02",
-      "active": 19,
-      "avg_latency": 29,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 1
+      "time": "20:34:37",
+      "active": 0,
+      "avg_latency": 0,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 13
     },
     {
-      "time": "10:50:32",
-      "active": 20,
-      "avg_latency": 32,
-      "wan_latency_ms": 10,
-      "wan_jitter_ms": 10
-    },
-    {
-      "time": "10:51:02",
-      "active": 19,
-      "avg_latency": 28,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "10:51:32",
-      "active": 20,
-      "avg_latency": 41,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 7
-    },
-    {
-      "time": "10:52:02",
-      "active": 19,
-      "avg_latency": 21,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "10:52:32",
-      "active": 19,
-      "avg_latency": 23,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "10:53:02",
-      "active": 20,
-      "avg_latency": 32,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "10:53:43",
-      "active": 89,
-      "avg_latency": 378,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "10:54:03",
-      "active": 26,
-      "avg_latency": 91,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "10:54:33",
-      "active": 20,
-      "avg_latency": 114,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 5
-    },
-    {
-      "time": "10:55:13",
-      "active": 23,
-      "avg_latency": 109,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "10:55:32",
-      "active": 40,
-      "avg_latency": 170,
-      "wan_latency_ms": 17,
-      "wan_jitter_ms": 9
-    },
-    {
-      "time": "10:56:09",
-      "active": 57,
-      "avg_latency": 454,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "10:56:48",
+      "time": "20:35:31",
       "active": 17,
-      "avg_latency": 30,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 12
+      "avg_latency": 1377,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 13
     },
     {
-      "time": "10:57:18",
-      "active": 17,
-      "avg_latency": 27,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "10:57:48",
-      "active": 19,
-      "avg_latency": 35,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "10:58:18",
-      "active": 19,
-      "avg_latency": 29,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 7
-    },
-    {
-      "time": "10:58:48",
-      "active": 18,
-      "avg_latency": 36,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "10:59:17",
-      "active": 17,
-      "avg_latency": 49,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "10:59:48",
-      "active": 18,
-      "avg_latency": 38,
+      "time": "20:36:02",
+      "active": 21,
+      "avg_latency": 255,
       "wan_latency_ms": 21,
-      "wan_jitter_ms": 50
-    },
-    {
-      "time": "11:00:18",
-      "active": 19,
-      "avg_latency": 36,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:00:47",
-      "active": 19,
-      "avg_latency": 31,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:01:21",
-      "active": 48,
-      "avg_latency": 243,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:01:48",
-      "active": 18,
-      "avg_latency": 27,
-      "wan_latency_ms": 17,
-      "wan_jitter_ms": 27
-    },
-    {
-      "time": "11:02:18",
-      "active": 18,
-      "avg_latency": 21,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:02:48",
-      "active": 20,
-      "avg_latency": 40,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "11:03:17",
-      "active": 19,
-      "avg_latency": 31,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "11:03:48",
-      "active": 20,
-      "avg_latency": 37,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 14
-    },
-    {
-      "time": "11:04:17",
-      "active": 19,
-      "avg_latency": 38,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 8
-    },
-    {
-      "time": "11:04:48",
-      "active": 20,
-      "avg_latency": 35,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:05:17",
-      "active": 20,
-      "avg_latency": 24,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:05:47",
-      "active": 20,
-      "avg_latency": 32,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:06:20",
-      "active": 101,
-      "avg_latency": 560,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:06:48",
-      "active": 34,
-      "avg_latency": 148,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 26
-    },
-    {
-      "time": "11:07:18",
-      "active": 31,
-      "avg_latency": 113,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:07:48",
-      "active": 21,
-      "avg_latency": 73,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:08:19",
-      "active": 36,
-      "avg_latency": 79,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:08:48",
-      "active": 36,
-      "avg_latency": 145,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:09:18",
-      "active": 28,
-      "avg_latency": 108,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:09:48",
-      "active": 19,
-      "avg_latency": 29,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "11:10:18",
-      "active": 20,
-      "avg_latency": 66,
-      "wan_latency_ms": 16,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "11:10:48",
-      "active": 20,
-      "avg_latency": 44,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:11:40",
-      "active": 59,
-      "avg_latency": 205,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "11:12:19",
-      "active": 18,
-      "avg_latency": 20,
-      "wan_latency_ms": 24,
-      "wan_jitter_ms": 24
-    },
-    {
-      "time": "11:12:49",
-      "active": 19,
-      "avg_latency": 41,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 0
-    },
-    {
-      "time": "11:13:19",
-      "active": 18,
-      "avg_latency": 37,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:13:49",
-      "active": 20,
-      "avg_latency": 54,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "11:14:19",
-      "active": 19,
-      "avg_latency": 28,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:14:48",
-      "active": 19,
-      "avg_latency": 27,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:15:18",
-      "active": 19,
-      "avg_latency": 28,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:15:48",
-      "active": 19,
-      "avg_latency": 27,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 18
-    },
-    {
-      "time": "11:16:18",
-      "active": 20,
-      "avg_latency": 36,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:16:59",
-      "active": 72,
-      "avg_latency": 445,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:17:28",
-      "active": 21,
-      "avg_latency": 37,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:17:58",
-      "active": 22,
-      "avg_latency": 74,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:18:28",
-      "active": 22,
-      "avg_latency": 60,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:18:49",
-      "active": 18,
-      "avg_latency": 28,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 0
-    },
-    {
-      "time": "11:19:28",
-      "active": 20,
-      "avg_latency": 41,
-      "wan_latency_ms": 19,
-      "wan_jitter_ms": 14
-    },
-    {
-      "time": "11:19:58",
-      "active": 21,
-      "avg_latency": 49,
-      "wan_latency_ms": 16,
-      "wan_jitter_ms": 5
-    },
-    {
-      "time": "11:20:28",
-      "active": 21,
-      "avg_latency": 37,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:20:48",
-      "active": 21,
-      "avg_latency": 35,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:21:28",
-      "active": 21,
-      "avg_latency": 33,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "11:21:51",
-      "active": 57,
-      "avg_latency": 397,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:22:28",
-      "active": 21,
-      "avg_latency": 50,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "11:22:49",
-      "active": 19,
-      "avg_latency": 28,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "11:23:19",
-      "active": 20,
-      "avg_latency": 31,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "13:30:12",
-      "active": 34,
-      "avg_latency": 144,
-      "wan_latency_ms": 47,
-      "wan_jitter_ms": 71
-    },
-    {
-      "time": "13:30:30",
-      "active": 29,
-      "avg_latency": 94,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 25
-    },
-    {
-      "time": "13:30:58",
-      "active": 22,
-      "avg_latency": 34,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 5
-    },
-    {
-      "time": "13:31:28",
-      "active": 22,
-      "avg_latency": 29,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "13:31:49",
-      "active": 14,
-      "avg_latency": 11,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 5
-    },
-    {
-      "time": "13:32:28",
-      "active": 21,
-      "avg_latency": 37,
-      "wan_latency_ms": 10,
-      "wan_jitter_ms": 12
-    },
-    {
-      "time": "13:32:59",
-      "active": 67,
-      "avg_latency": 202,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "13:33:28",
-      "active": 23,
-      "avg_latency": 61,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "13:33:58",
-      "active": 19,
-      "avg_latency": 21,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "13:34:28",
-      "active": 20,
-      "avg_latency": 22,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "13:34:58",
-      "active": 23,
-      "avg_latency": 61,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 8
-    },
-    {
-      "time": "13:35:28",
-      "active": 23,
-      "avg_latency": 44,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "13:35:58",
-      "active": 22,
-      "avg_latency": 31,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "13:36:18",
-      "active": 20,
-      "avg_latency": 27,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 12
-    },
-    {
-      "time": "13:36:58",
-      "active": 21,
-      "avg_latency": 29,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "13:37:28",
-      "active": 22,
-      "avg_latency": 22,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "13:37:59",
-      "active": 97,
-      "avg_latency": 608,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "13:38:28",
-      "active": 20,
-      "avg_latency": 69,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 1
-    },
-    {
-      "time": "13:38:58",
-      "active": 21,
-      "avg_latency": 44,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 9
-    },
-    {
-      "time": "13:39:29",
-      "active": 21,
-      "avg_latency": 48,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 6
-    },
-    {
-      "time": "13:39:58",
-      "active": 21,
-      "avg_latency": 72,
-      "wan_latency_ms": 17,
-      "wan_jitter_ms": 9
-    },
-    {
-      "time": "03:36:58",
-      "active": 19,
-      "avg_latency": 511,
-      "wan_latency_ms": 11,
-      "wan_jitter_ms": 15
-    },
-    {
-      "time": "03:37:08",
-      "active": 19,
-      "avg_latency": 76,
-      "wan_latency_ms": 30,
-      "wan_jitter_ms": 38
-    },
-    {
-      "time": "03:37:19",
-      "active": 20,
-      "avg_latency": 104,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 14
-    },
-    {
-      "time": "03:37:49",
-      "active": 20,
-      "avg_latency": 37,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 21
-    },
-    {
-      "time": "03:38:18",
-      "active": 19,
-      "avg_latency": 36,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "03:38:54",
-      "active": 21,
-      "avg_latency": 79,
-      "wan_latency_ms": 20,
-      "wan_jitter_ms": 20
-    },
-    {
-      "time": "03:39:18",
-      "active": 21,
-      "avg_latency": 57,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 9
-    },
-    {
-      "time": "03:39:48",
-      "active": 20,
-      "avg_latency": 43,
-      "wan_latency_ms": 54,
-      "wan_jitter_ms": 53
-    },
-    {
-      "time": "03:40:19",
-      "active": 20,
-      "avg_latency": 42,
-      "wan_latency_ms": 131,
-      "wan_jitter_ms": 325
-    },
-    {
-      "time": "03:40:48",
-      "active": 21,
-      "avg_latency": 30,
-      "wan_latency_ms": 13,
-      "wan_jitter_ms": 3
-    },
-    {
-      "time": "03:41:18",
-      "active": 21,
-      "avg_latency": 28,
-      "wan_latency_ms": 12,
-      "wan_jitter_ms": 2
-    },
-    {
-      "time": "19:58:55",
-      "active": 17,
-      "avg_latency": 571,
-      "wan_latency_ms": 15,
-      "wan_jitter_ms": 4
-    },
-    {
-      "time": "19:59:19",
-      "active": 18,
-      "avg_latency": 611,
-      "wan_latency_ms": 63,
-      "wan_jitter_ms": 158
-    },
-    {
-      "time": "19:59:37",
-      "active": 18,
-      "avg_latency": 501,
-      "wan_latency_ms": 37,
-      "wan_jitter_ms": 46
-    },
-    {
-      "time": "20:00:03",
-      "active": 19,
-      "avg_latency": 146,
-      "wan_latency_ms": 19,
       "wan_jitter_ms": 17
     },
     {
-      "time": "20:00:40",
-      "active": 18,
-      "avg_latency": 161,
-      "wan_latency_ms": 72,
-      "wan_jitter_ms": 66
+      "time": "20:36:11",
+      "active": 21,
+      "avg_latency": 51,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 5
     },
     {
-      "time": "20:00:50",
-      "active": 18,
-      "avg_latency": 443,
-      "wan_latency_ms": 98,
-      "wan_jitter_ms": 53
+      "time": "20:36:33",
+      "active": 20,
+      "avg_latency": 92,
+      "wan_latency_ms": 47,
+      "wan_jitter_ms": 111
     },
     {
-      "time": "20:01:26",
-      "active": 18,
-      "avg_latency": 115,
-      "wan_latency_ms": 274,
-      "wan_jitter_ms": 78
-    },
-    {
-      "time": "20:02:08",
-      "active": 19,
-      "avg_latency": 233,
-      "wan_latency_ms": 17,
-      "wan_jitter_ms": 19
-    },
-    {
-      "time": "20:02:35",
-      "active": 19,
-      "avg_latency": 54,
-      "wan_latency_ms": 14,
-      "wan_jitter_ms": 7
-    },
-    {
-      "time": "20:02:59",
-      "active": 19,
-      "avg_latency": 153,
-      "wan_latency_ms": 17,
+      "time": "20:37:02",
+      "active": 21,
+      "avg_latency": 30,
+      "wan_latency_ms": 13,
       "wan_jitter_ms": 10
     },
     {
-      "time": "20:03:30",
+      "time": "20:37:33",
+      "active": 21,
+      "avg_latency": 53,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "20:38:03",
       "active": 19,
+      "avg_latency": 51,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "20:38:33",
+      "active": 19,
+      "avg_latency": 48,
+      "wan_latency_ms": 45,
+      "wan_jitter_ms": 49
+    },
+    {
+      "time": "20:39:03",
+      "active": 21,
+      "avg_latency": 56,
+      "wan_latency_ms": 25,
+      "wan_jitter_ms": 23
+    },
+    {
+      "time": "20:39:33",
+      "active": 20,
+      "avg_latency": 31,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "20:40:03",
+      "active": 21,
+      "avg_latency": 41,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "20:40:54",
+      "active": 52,
+      "avg_latency": 192,
+      "wan_latency_ms": 26,
+      "wan_jitter_ms": 17
+    },
+    {
+      "time": "20:41:03",
+      "active": 22,
+      "avg_latency": 50,
+      "wan_latency_ms": 45,
+      "wan_jitter_ms": 122
+    },
+    {
+      "time": "20:41:33",
+      "active": 19,
+      "avg_latency": 27,
+      "wan_latency_ms": 30,
+      "wan_jitter_ms": 32
+    },
+    {
+      "time": "20:42:03",
+      "active": 21,
+      "avg_latency": 61,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 11
+    },
+    {
+      "time": "20:42:40",
+      "active": 23,
+      "avg_latency": 583,
+      "wan_latency_ms": 23,
+      "wan_jitter_ms": 20
+    },
+    {
+      "time": "20:43:04",
+      "active": 21,
+      "avg_latency": 44,
+      "wan_latency_ms": 20,
+      "wan_jitter_ms": 23
+    },
+    {
+      "time": "20:43:33",
+      "active": 22,
+      "avg_latency": 60,
+      "wan_latency_ms": 41,
+      "wan_jitter_ms": 50
+    },
+    {
+      "time": "20:44:03",
+      "active": 23,
+      "avg_latency": 45,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "20:44:33",
+      "active": 22,
+      "avg_latency": 49,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "20:45:03",
+      "active": 23,
+      "avg_latency": 61,
+      "wan_latency_ms": 52,
+      "wan_jitter_ms": 139
+    },
+    {
+      "time": "20:45:39",
+      "active": 37,
+      "avg_latency": 274,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "20:46:04",
+      "active": 25,
+      "avg_latency": 71,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "20:46:36",
+      "active": 22,
+      "avg_latency": 180,
+      "wan_latency_ms": 22,
+      "wan_jitter_ms": 31
+    },
+    {
+      "time": "20:47:05",
+      "active": 23,
+      "avg_latency": 63,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 19
+    },
+    {
+      "time": "20:47:35",
+      "active": 31,
+      "avg_latency": 456,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "20:48:07",
+      "active": 21,
+      "avg_latency": 265,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "20:48:36",
+      "active": 20,
+      "avg_latency": 64,
+      "wan_latency_ms": 22,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "20:49:03",
+      "active": 21,
+      "avg_latency": 52,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "20:49:34",
+      "active": 20,
+      "avg_latency": 35,
+      "wan_latency_ms": 32,
+      "wan_jitter_ms": 71
+    },
+    {
+      "time": "20:50:03",
+      "active": 21,
+      "avg_latency": 32,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "20:50:52",
+      "active": 72,
+      "avg_latency": 501,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "20:51:03",
+      "active": 31,
+      "avg_latency": 141,
+      "wan_latency_ms": 16,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "20:51:35",
+      "active": 31,
+      "avg_latency": 594,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "20:52:04",
+      "active": 22,
+      "avg_latency": 82,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "20:52:39",
+      "active": 27,
+      "avg_latency": 250,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "20:53:04",
+      "active": 28,
+      "avg_latency": 141,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "20:53:33",
+      "active": 22,
+      "avg_latency": 34,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "20:54:09",
+      "active": 33,
+      "avg_latency": 134,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "20:54:33",
+      "active": 27,
+      "avg_latency": 80,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "20:55:07",
+      "active": 28,
+      "avg_latency": 72,
+      "wan_latency_ms": 27,
+      "wan_jitter_ms": 33
+    },
+    {
+      "time": "20:55:36",
+      "active": 82,
+      "avg_latency": 537,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "20:56:04",
+      "active": 40,
+      "avg_latency": 152,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:45:17",
+      "active": 19,
+      "avg_latency": 15795,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "21:45:36",
+      "active": 26,
+      "avg_latency": 141,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "21:45:54",
+      "active": 33,
+      "avg_latency": 130,
+      "wan_latency_ms": 24,
+      "wan_jitter_ms": 35
+    },
+    {
+      "time": "21:46:06",
+      "active": 19,
+      "avg_latency": 146,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "21:46:43",
+      "active": 21,
+      "avg_latency": 125,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "21:47:03",
+      "active": 19,
+      "avg_latency": 82,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "21:47:33",
+      "active": 20,
+      "avg_latency": 37,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:48:13",
+      "active": 21,
+      "avg_latency": 62,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:48:52",
+      "active": 45,
+      "avg_latency": 230,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "21:49:13",
+      "active": 23,
       "avg_latency": 74,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "21:49:33",
+      "active": 19,
+      "avg_latency": 39,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "21:50:13",
+      "active": 21,
+      "avg_latency": 65,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "21:50:33",
+      "active": 20,
+      "avg_latency": 39,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:51:13",
+      "active": 27,
+      "avg_latency": 115,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "21:51:43",
+      "active": 21,
+      "avg_latency": 43,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "21:52:03",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "21:52:43",
+      "active": 21,
+      "avg_latency": 47,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "21:53:03",
+      "active": 19,
+      "avg_latency": 25,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:53:36",
+      "active": 17,
+      "avg_latency": 77,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "21:54:03",
+      "active": 19,
+      "avg_latency": 28,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "21:54:43",
+      "active": 21,
+      "avg_latency": 49,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "21:55:03",
+      "active": 20,
+      "avg_latency": 28,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 18
+    },
+    {
+      "time": "21:55:43",
+      "active": 21,
+      "avg_latency": 44,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "21:56:14",
+      "active": 21,
+      "avg_latency": 31,
       "wan_latency_ms": 13,
       "wan_jitter_ms": 8
     },
     {
-      "time": "20:04:01",
-      "active": 19,
-      "avg_latency": 69,
-      "wan_latency_ms": 36,
-      "wan_jitter_ms": 30
+      "time": "21:57:13",
+      "active": 21,
+      "avg_latency": 44,
+      "wan_latency_ms": 23,
+      "wan_jitter_ms": 23
     },
     {
-      "time": "20:04:19",
-      "active": 18,
-      "avg_latency": 36,
+      "time": "21:57:21",
+      "active": 19,
+      "avg_latency": 62,
       "wan_latency_ms": 13,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "21:57:33",
+      "active": 20,
+      "avg_latency": 31,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 18
+    },
+    {
+      "time": "21:58:06",
+      "active": 19,
+      "avg_latency": 270,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "21:59:12",
+      "active": 20,
+      "avg_latency": 657,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 12
+    },
+    {
+      "time": "21:59:21",
+      "active": 19,
+      "avg_latency": 119,
+      "wan_latency_ms": 38,
+      "wan_jitter_ms": 22
+    },
+    {
+      "time": "21:59:35",
+      "active": 20,
+      "avg_latency": 83,
+      "wan_latency_ms": 38,
+      "wan_jitter_ms": 18
+    },
+    {
+      "time": "22:00:04",
+      "active": 19,
+      "avg_latency": 25,
+      "wan_latency_ms": 18,
+      "wan_jitter_ms": 15
+    },
+    {
+      "time": "22:00:33",
+      "active": 19,
+      "avg_latency": 36,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "22:01:03",
+      "active": 19,
+      "avg_latency": 36,
+      "wan_latency_ms": 19,
+      "wan_jitter_ms": 26
+    },
+    {
+      "time": "22:01:33",
+      "active": 20,
+      "avg_latency": 70,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "22:02:03",
+      "active": 20,
+      "avg_latency": 41,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 5
+    },
+    {
+      "time": "22:02:33",
+      "active": 20,
+      "avg_latency": 27,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "22:03:03",
+      "active": 19,
+      "avg_latency": 69,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "22:03:38",
+      "active": 39,
+      "avg_latency": 267,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "22:04:03",
+      "active": 19,
+      "avg_latency": 42,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:04:33",
+      "active": 19,
+      "avg_latency": 38,
+      "wan_latency_ms": 12,
       "wan_jitter_ms": 2
     },
     {
-      "time": "20:05:13",
-      "active": 21,
-      "avg_latency": 96,
-      "wan_latency_ms": 18,
-      "wan_jitter_ms": 11
+      "time": "22:05:03",
+      "active": 22,
+      "avg_latency": 88,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 0
     },
     {
-      "time": "20:05:55",
-      "active": 20,
-      "avg_latency": 105,
-      "wan_latency_ms": 43,
-      "wan_jitter_ms": 40
-    },
-    {
-      "time": "20:06:23",
+      "time": "22:05:33",
       "active": 19,
-      "avg_latency": 37,
-      "wan_latency_ms": 16,
+      "avg_latency": 39,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:06:04",
+      "active": 23,
+      "avg_latency": 66,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "22:06:33",
+      "active": 20,
+      "avg_latency": 45,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:07:03",
+      "active": 20,
+      "avg_latency": 30,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "22:07:33",
+      "active": 20,
+      "avg_latency": 39,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "22:08:03",
+      "active": 20,
+      "avg_latency": 34,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "22:08:56",
+      "active": 39,
+      "avg_latency": 340,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 2
+    },
+    {
+      "time": "22:09:05",
+      "active": 18,
+      "avg_latency": 29,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "22:09:33",
+      "active": 20,
+      "avg_latency": 25,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:10:03",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 16
+    },
+    {
+      "time": "22:10:34",
+      "active": 25,
+      "avg_latency": 80,
+      "wan_latency_ms": 20,
+      "wan_jitter_ms": 14
+    },
+    {
+      "time": "22:11:03",
+      "active": 20,
+      "avg_latency": 34,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "22:11:33",
+      "active": 20,
+      "avg_latency": 30,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 27
+    },
+    {
+      "time": "22:12:03",
+      "active": 20,
+      "avg_latency": 32,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 4
+    },
+    {
+      "time": "22:12:33",
+      "active": 20,
+      "avg_latency": 40,
+      "wan_latency_ms": 13,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:13:03",
+      "active": 20,
+      "avg_latency": 33,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:13:38",
+      "active": 74,
+      "avg_latency": 378,
+      "wan_latency_ms": 13,
       "wan_jitter_ms": 6
     },
     {
-      "time": "20:06:52",
-      "active": 18,
-      "avg_latency": 52,
+      "time": "22:14:04",
+      "active": 20,
+      "avg_latency": 70,
       "wan_latency_ms": 14,
-      "wan_jitter_ms": 2
+      "wan_jitter_ms": 11
+    },
+    {
+      "time": "22:14:37",
+      "active": 20,
+      "avg_latency": 49,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 8
+    },
+    {
+      "time": "22:15:13",
+      "active": 20,
+      "avg_latency": 266,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 11
+    },
+    {
+      "time": "22:15:35",
+      "active": 43,
+      "avg_latency": 133,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 10
+    },
+    {
+      "time": "22:16:05",
+      "active": 20,
+      "avg_latency": 58,
+      "wan_latency_ms": 22,
+      "wan_jitter_ms": 29
+    },
+    {
+      "time": "22:16:33",
+      "active": 21,
+      "avg_latency": 48,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 1
+    },
+    {
+      "time": "22:17:03",
+      "active": 21,
+      "avg_latency": 80,
+      "wan_latency_ms": 11,
+      "wan_jitter_ms": 11
+    },
+    {
+      "time": "22:17:33",
+      "active": 19,
+      "avg_latency": 36,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:18:03",
+      "active": 21,
+      "avg_latency": 75,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 20
+    },
+    {
+      "time": "22:18:54",
+      "active": 29,
+      "avg_latency": 213,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 9
+    },
+    {
+      "time": "22:19:03",
+      "active": 20,
+      "avg_latency": 35,
+      "wan_latency_ms": 17,
+      "wan_jitter_ms": 13
+    },
+    {
+      "time": "22:19:33",
+      "active": 20,
+      "avg_latency": 34,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 7
+    },
+    {
+      "time": "22:20:03",
+      "active": 19,
+      "avg_latency": 25,
+      "wan_latency_ms": 14,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:20:33",
+      "active": 21,
+      "avg_latency": 43,
+      "wan_latency_ms": 25,
+      "wan_jitter_ms": 36
+    },
+    {
+      "time": "22:21:03",
+      "active": 21,
+      "avg_latency": 37,
+      "wan_latency_ms": 12,
+      "wan_jitter_ms": 3
+    },
+    {
+      "time": "22:21:33",
+      "active": 19,
+      "avg_latency": 45,
+      "wan_latency_ms": 15,
+      "wan_jitter_ms": 15
     }
   ],
   "agents": {},
-  "current_wan_latency": 14,
-  "current_wan_jitter": 2
+  "mesh_tree": {
+    "name": "FRITZ!Box",
+    "ip": "192.168.178.1",
+    "mac": "Router",
+    "device_type": "router",
+    "active": true,
+    "children": [
+      {
+        "name": "fritz-powerlinewintergarten",
+        "ip": "192.168.178.21",
+        "mac": "",
+        "device_type": "repeater",
+        "active": true,
+        "children": [
+          {
+            "name": "P110",
+            "ip": "192.168.178.72",
+            "mac": "3C:6A:D2:91:0F:7A",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-20",
+            "ip": "192.168.178.20",
+            "mac": "0C:72:74:66:10:78",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-25",
+            "ip": "192.168.178.25",
+            "mac": "B0:4A:39:0B:29:B5",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-31",
+            "ip": "192.168.178.31",
+            "mac": "EC:B5:FA:15:E7:91",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-38",
+            "ip": "192.168.178.38",
+            "mac": "22:37:12:25:C4:40",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-46",
+            "ip": "192.168.178.46",
+            "mac": "74:E2:0C:6C:79:F1",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-97",
+            "ip": "192.168.178.97",
+            "mac": "00:1A:22:1B:3A:79",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-3C-71-BF-27-EF-4B",
+            "ip": "192.168.178.80",
+            "mac": "3C:71:BF:27:EF:4B",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-4C-17-44-D2-1C-6E",
+            "ip": "192.168.178.24",
+            "mac": "4C:17:44:D2:1C:6E",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-98-CC-F3-B0-6E-FD",
+            "ip": "192.168.178.41",
+            "mac": "98:CC:F3:B0:6E:FD",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "amazon-e3c67555",
+            "ip": "192.168.178.28",
+            "mac": "2C:71:FF:9C:67:F0",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "echoshow-dacc83",
+            "ip": "192.168.178.49",
+            "mac": "28:73:F6:E3:53:F6",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "fritz-powerlinewohnzimmer",
+            "ip": "192.168.178.39",
+            "mac": "50:E6:36:E0:58:03",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "roborock-vacuum",
+            "ip": "192.168.178.58",
+            "mac": "B0:4A:39:A0:0A:3B",
+            "device_type": "client",
+            "active": true
+          }
+        ]
+      },
+      {
+        "name": "fritz-powerlinewohnzimmer",
+        "ip": "192.168.178.39",
+        "mac": "",
+        "device_type": "repeater",
+        "active": true,
+        "children": [
+          {
+            "name": "A55-von-Sabrina",
+            "ip": "192.168.178.54",
+            "mac": "5A:60:31:CA:A6:E5",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "DESKTOP-AC4KSCB",
+            "ip": "192.168.178.95",
+            "mac": "34:FD:70:80:DF:A9",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "P110",
+            "ip": "192.168.178.75",
+            "mac": "3C:6A:D2:90:9F:7C",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-20",
+            "ip": "192.168.178.20",
+            "mac": "0C:72:74:66:10:78",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-38",
+            "ip": "192.168.178.38",
+            "mac": "22:37:12:25:C4:40",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-40-A9-CF-4F-2E-87",
+            "ip": "192.168.178.42",
+            "mac": "40:A9:CF:4F:2E:87",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-7C-C6-B6-AA-32-DA",
+            "ip": "192.168.178.70",
+            "mac": "7C:C6:B6:AA:32:DA",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-C4-95-00-BA-DC-87",
+            "ip": "192.168.178.44",
+            "mac": "C4:95:00:BA:DC:87",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-F4-A9-97-43-07-67",
+            "ip": "192.168.178.34",
+            "mac": "F4:A9:97:43:07:67",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "fritz-powerlinewintergarten",
+            "ip": "192.168.178.21",
+            "mac": "0C:72:74:6C:66:4B",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "fritz-repeaters",
+            "ip": "192.168.178.97",
+            "mac": "12:C5:74:4F:D1:D3",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "iPhone",
+            "ip": "192.168.178.36",
+            "mac": "BA:73:58:82:B6:5C",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "sebastian-lapto",
+            "ip": "192.168.178.23",
+            "mac": "34:7D:F6:0E:F4:3E",
+            "device_type": "client",
+            "active": true
+          }
+        ]
+      },
+      {
+        "name": "fritz-repeaterog",
+        "ip": "192.168.178.38",
+        "mac": "",
+        "device_type": "repeater",
+        "active": true,
+        "children": [
+          {
+            "name": "P110",
+            "ip": "192.168.178.72",
+            "mac": "3C:6A:D2:91:0F:7A",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-192-168-178-46",
+            "ip": "192.168.178.46",
+            "mac": "74:E2:0C:6C:79:F1",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-98-CC-F3-B0-6E-FD",
+            "ip": "192.168.178.41",
+            "mac": "98:CC:F3:B0:6E:FD",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-B0-4A-39-0B-29-B5",
+            "ip": "192.168.178.25",
+            "mac": "B0:4A:39:0B:29:B5",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "Pixel-10-Pro",
+            "ip": "192.168.178.93",
+            "mac": "4A:2A:D4:C2:97:D6",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "WZDE7314",
+            "ip": "192.168.178.66",
+            "mac": "8C:3B:4A:BA:91:EB",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "amazon-e3c67555",
+            "ip": "192.168.178.28",
+            "mac": "2C:71:FF:9C:67:F0",
+            "device_type": "client",
+            "active": true
+          }
+        ]
+      },
+      {
+        "name": "fritz-repeaterstudio",
+        "ip": "192.168.178.86",
+        "mac": "",
+        "device_type": "repeater",
+        "active": true,
+        "children": [
+          {
+            "name": "Basisstation",
+            "ip": "192.168.178.38",
+            "mac": "3C:37:12:25:C4:40",
+            "device_type": "client",
+            "active": true
+          },
+          {
+            "name": "PC-74-58-F3-EC-57-11",
+            "ip": "192.168.178.47",
+            "mac": "74:58:F3:EC:57:11",
+            "device_type": "client",
+            "active": true
+          }
+        ]
+      },
+      {
+        "name": "tas-27F75B-5979-Stehlampe",
+        "ip": "192.168.178.37",
+        "mac": "3C:71:BF:27:F7:5B",
+        "device_type": "client",
+        "active": true
+      }
+    ]
+  },
+  "current_wan_latency": 15,
+  "current_wan_jitter": 15,
+  "last_mesh_update": "22:18:41"
 }

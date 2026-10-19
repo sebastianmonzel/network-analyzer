@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"network-analyzer/analyzer"
+	"network-scanner/analyzer"
 )
 
 func main() {
@@ -31,11 +31,31 @@ func main() {
 
 	go analyzer.StartWebServer()
 
+	// Mesh-Topologie beim Start synchron aufbauen und anschließend ausgeben
+	boxIP := routerIP
+	analyzer.UpdateMeshTopology(boxIP)
+
+	for i := 0; i < 20; i++ {
+		stats := analyzer.GetStats()
+		if stats != nil && stats.MeshTree != nil {
+			fmt.Println()
+			analyzer.PrintMeshTree(stats.MeshTree)
+			fmt.Println()
+			break
+		}
+		time.Sleep(250 * time.Millisecond)
+	}
+
+	if stats := analyzer.GetStats(); stats == nil || stats.MeshTree == nil {
+		fmt.Println("[Mesh] Keine Topologie erkannt (FRITZ!Box nicht erreichbar oder keine Repeater/Clients gefunden).")
+	}
+
 	knownIPs := analyzer.RunScanCycle(allIPs, routerIP, networkState, missCounts, "INITIALER KOMPLETT-SCAN", true)
 
 	fmt.Printf("\n>>> Überwachung gestartet.\n")
 	fmt.Println(">>> - Schnellprüfung:  alle 30 Sekunden")
 	fmt.Println(">>> - Komplett-Scan:   alle 5 Minuten")
+	fmt.Println(">>> - Mesh-Update:     alle 10 Minuten")
 	fmt.Println(">>> - Dynamische Agenten-Erkennung & Updates: Aktiv")
 	fmt.Println(">>> (Abbruch mit Strg+C)")
 
@@ -44,8 +64,16 @@ func main() {
 	defer ticker.Stop()
 
 	ticks := 0
+	meshUpdateTicks := 0
 	for range ticker.C {
 		ticks++
+		meshUpdateTicks++
+
+		if meshUpdateTicks >= 20 {
+			analyzer.UpdateMeshTopology(boxIP)
+			meshUpdateTicks = 0
+		}
+
 		if ticks >= 10 {
 			knownIPs = analyzer.RunScanCycle(allIPs, routerIP, networkState, missCounts, "5-MINUTEN KOMPLETT-SCAN", false)
 			ticks = 0

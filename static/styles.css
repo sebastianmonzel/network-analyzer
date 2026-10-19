@@ -71,3 +71,18 @@ th {
     border: 1px solid #444;
     font-size: 0.9em;
 }
+
+.mesh-connected {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4caf50;
+    padding-left: 9px;
+    font-weight: 500;
+}
+
+.mesh-unknown {
+    background: rgba(255, 152, 0, 0.1);
+    border-left: 3px solid #ff9800;
+    padding-left: 9px;
+    color: #ff9800;
+    font-style: italic;
+}

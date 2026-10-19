@@ -47,6 +47,12 @@ go mod download
 
 ### Kompilierung
 
+**Server und Agent gemeinsam bauen:**
+```bash
+bash build.sh
+```
+Die Binärdateien werden passend zum Zielsystem in `build/` abgelegt.
+
 **Analyzer:**
 ```bash
 go build -o analyzer.exe .
@@ -123,18 +129,19 @@ var commonPorts = []string{
 
 ### WAN-Target ändern
 
-Bearbeite `analyzer/analyzer.go` und `agent/agent.go`:
+Bearbeite `analyzer/analyzer.go` und `agent/agent_quality.go`:
 
 ```go
 const checkTarget = "8.8.8.8:53"  // Google DNS
 ```
 
-## 📊 API-Endpunkte
+## � API-Endpunkte
 
 ### Analyzer
 
 - **GET `/`** - Web-Dashboard
-- **GET `/api/data`** - JSON mit allen Netzwerkdaten
+- **GET `/api/data`** - JSON mit allen Netzwerkdaten (Devices, History, Agents, WAN-Qualität)
+- **GET `/api/mesh`** - FRITZ!Box Mesh-Topologie (Hierarchie aller Geräte)
 - **GET `/api/is-main-server`** - Server-Identifikation
 - **GET `/api/agent-version`** - Aktuelle Agent-Version
 - **GET `/api/agent-binary`** - Agent-Binärdatei zum Download
@@ -147,33 +154,52 @@ const checkTarget = "8.8.8.8:53"  // Google DNS
 
 ```
 network-analyzer/
-├── main.go              # Analyzer Entry-Point
+├── main.go                    # Analyzer Entry-Point
 ├── analyzer/
-│   ├── main.go          # Agent Entry-Point
-│   ├── agent.go         # Agent Package
-│   └── agent.go         # Agent Package
-├── analyzer/
-│   ├── analyzer.go      # Analyzer Logik & Web-Server
-│   └── meshtree.go      # FRITZ!Box Mesh-Topologie
+│   └── analyzer.go           # Analyzer Package (Netzwerk-Scanning, Web-Server, Mesh-Topologie)
+├── agent/
+│   ├── main.go              # Agent Entry-Point
+│   ├── agent_service.go     # Start, Hintergrundjobs und HTTP-Endpunkt
+│   ├── agent_server.go      # Hauptserver-Erkennung und Server-Adresse
+│   ├── agent_data.go        # Agent-Daten, lokale IP und WLAN-Informationen
+│   ├── agent_quality.go    # Latenz- und Jitter-Messung
+│   └── agent_update.go     # Versionsprüfung und Self-Update
 ├── static/
-│   ├── index.html       # Web-Dashboard (Frontend)
-│   ├── script.js        # JavaScript-Logik
-│   └── styles.css       # Styling
-├── go.mod              # Go-Abhängigkeiten
-├── network_stats.json  # Persistierte Netzwerkdaten
-└── network.log         # Änderungsprotokoll
+│   ├── index.html           # Web-Dashboard (Frontend)
+│   ├── script.js            # JavaScript-Logik
+│   └── styles.css           # Styling
+├── go.mod                    # Go-Abhängigkeiten
+├── LICENSE.md               # Lizenzinformation
+├── README.md                # Diese Datei
+├── network_stats.json       # Persistierte Netzwerkdaten
+└── network.log              # Änderungsprotokoll
 ```
+
+## 🧩 Aufbau des Agents
+
+Der Agent ist ein eigenständiges Go-Programm im Verzeichnis `agent/`. Alle Agent-Dateien gehören zum selben `package main` und werden gemeinsam zu `agent.exe` kompiliert. `main.go` ruft `start()` auf; die Implementierung ist nach Aufgaben in mehrere Dateien getrennt:
+
+- **`agent_service.go`** initialisiert Hostname, IP-Adresse und Versionsdaten. Es startet die Hintergrundaufgaben, registriert `GET /data` und lauscht auf Port `8081`.
+- **`agent_server.go`** sucht den Analyzer im lokalen IPv4-Subnetz über dessen `/api/is-main-server`-Endpunkt. Die gefundene Adresse wird nebenläufigkeitssicher gespeichert; bei erfolgloser Suche dient `http://localhost:8080` als Rückfalladresse.
+- **`agent_data.go`** definiert `AgentPayload`, das JSON-Datenmodell des Agents, und schützt den gemeinsam genutzten Datenstand mit einem RWMutex. Dort liegen außerdem die Ermittlung der lokalen IP sowie die WLAN-Abfrage für Windows und Linux.
+- **`agent_quality.go`** misst die TCP-Verbindungszeit zu `8.8.8.8:53`. Aus bis zu fünf Messungen werden mittlere Latenz und Jitter als Spannweite zwischen langsamster und schnellster Messung bestimmt. Anschließend werden diese Werte zusammen mit den WLAN-Daten im Agent-Datenstand aktualisiert.
+- **`agent_update.go`** fragt die Agent-Version des Analyzers ab. Bei einer abweichenden Version lädt der Agent die Binärdatei herunter, ersetzt seine ausführbare Datei und startet sich neu.
+
+Beim Start werden Server-Erkennung, Qualitätsmessung und Update-Prüfung parallel ausgeführt. Die Qualitätsmessung läuft danach alle 30 Sekunden. Die erste Update-Prüfung erfolgt nach 10 Sekunden, weitere Prüfungen alle 10 Minuten. Die Agent-Daten können über `GET http://<agent-ip>:8081/data` als JSON abgerufen werden.
 
 ## 🔄 Arbeitsablauf
 
 1. **Analyzer** startet auf dem Hauptserver (Port 8080)
 2. Analyzer erkennt das lokale Subnetz automatisch
-3. Initialer Komplett-Scan alisiert alle Geräte
-4. Alle 30 Sekunden: Schnellprüfung der bekannten IPs
-5. Alle 5 Minuten: Komplett-Scan des gesamten Subnetzes
-6. **Agent** auf Clients startet und findet Analyzer automatisch
-7. Agent sendet Qualitätsmessungen (Latenz/Jitter/WiFi-Info)
-8. Analyzer sammelt Agent-Daten und zeigt sie im Dashboard
+3. **Mesh-Topologie** wird beim Start und alle 10 Minuten aktualisiert
+4. Initialer Komplett-Scan alisiert alle Geräte
+5. Alle 30 Sekunden: Schnellprüfung der bekannten IPs
+6. Alle 5 Minuten: Komplett-Scan des gesamten Subnetzes
+7. Alle 10 Minuten: Aktualisierung der FRITZ!Box Mesh-Topologie
+8. **Agent** auf Clients startet und findet Analyzer automatisch
+9. Agent sendet Qualitätsmessungen (Latenz/Jitter/WiFi-Info)
+10. Analyzer sammelt Agent-Daten und zeigt sie im Dashboard
+11. Mesh-Hierarchie wird mit Geräte-Daten kombiniert im Dashboard angezeigt
 
 ## 📈 Datenerfassung
 
@@ -185,16 +211,24 @@ network-analyzer/
 - Latenz & Jitter
 - Online/Offline-Status
 
+### Mesh-Topologie:
+- FRITZ!Box Basis
+- Repeater-Struktur
+- Zugeordnete Clients pro Repeater/Box
+- Active-Status jedes Geräts
+- Hierarchische Darstellung aller Verbindungen
+
 ### Historische Daten:
 - Anzahl aktiver Geräte
 - Durchschnittliche Latenz
 - WAN-Latenz & Jitter
 - Zeitstempel (500+ Einträge)
+- Letzter Mesh-Update
 
 ### Agent-Daten:
 - Gerätename & IP
 - WiFi-Signalstärke (RSSI)
-- BSSID (Access Point)
+- BSSID (Access Point/Repeater)
 - Latenz & Jitter
 - Agent-Version
 

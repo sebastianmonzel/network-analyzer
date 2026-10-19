@@ -96,25 +96,31 @@ async function updateDashboard() {
             const latencyText = d.status.startsWith('Fehlt') ? '-' : d.latency_ms + ' ms';
             const jitterText = d.status.startsWith('Fehlt') ? '-' : d.jitter_ms + ' ms';
 
-            let ipDisplay = d.ip;
+            const connectedVia = d.connected_via || d.connectedVia || 'Unbekannt';
+            const meshIcon = d.mesh_icon || '❓';
+            const portValue = d.port || 'Unbekannt';
 
-            if ((d.port.includes('Web') || d.port.includes('UPnP')) && !d.status.startsWith('Fehlt')) {
-                let scheme = d.port.includes('HTTPS') ? 'https://' : 'http://';
+            let ipDisplay = d.ip;
+            if ((portValue.includes('Web') || portValue.includes('UPnP')) && !d.status.startsWith('Fehlt')) {
+                let scheme = portValue.includes('HTTPS') ? 'https://' : 'http://';
                 let linkUrl = scheme + d.ip;
-                if (d.port.includes('Alt')) {
+                if (portValue.includes('Alt')) {
                     linkUrl = scheme + d.ip + ':8080';
                 }
                 ipDisplay = '<a href="' + linkUrl + '" target="_blank" style="color: #4caf50; text-decoration: none;" title="Webinterface öffnen">🔗 ' + d.ip + '</a>';
             }
 
             let macDisplay = (d.mac && d.mac !== "") ? d.mac : '-';
+            let meshDisplay = connectedVia === 'Unbekannt' ? '❓ Unbekannt' : meshIcon + ' ' + connectedVia;
+            let meshClass = connectedVia === 'Unbekannt' ? 'mesh-unknown' : 'mesh-connected';
 
             tbody.innerHTML += '<tr>' +
                 '<td class="' + statusClass + '">' + d.status + '</td>' +
                 '<td>' + ipDisplay + '</td>' +
                 '<td class="mac-text">' + macDisplay + '</td>' +
                 '<td>' + d.hostname + '</td>' +
-                '<td>' + d.port + '</td>' +
+                '<td class="' + meshClass + '">' + meshDisplay + '</td>' +
+                '<td>' + portValue + '</td>' +
                 '<td>' + latencyText + '</td>' +
                 '<td>' + jitterText + '</td>' +
             '</tr>';

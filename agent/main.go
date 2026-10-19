@@ -1,6 +1,5 @@
-package agent
-
+package main
 
 func main() {
-	Start()
+	start()
 }
