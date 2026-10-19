@@ -55,7 +55,7 @@ Die Binärdateien werden passend zum Zielsystem in `build/` abgelegt.
 
 **Analyzer:**
 ```bash
-go build -o analyzer.exe .
+go build -o analyzer.exe ./cmd/analyzer
 ```
 
 **Agent:**
@@ -154,7 +154,9 @@ const checkTarget = "8.8.8.8:53"  // Google DNS
 
 ```
 network-analyzer/
-├── main.go                    # Analyzer Entry-Point
+├── cmd/
+│   └── analyzer/
+│       └── main.go            # Analyzer Entry-Point
 ├── analyzer/
 │   └── analyzer.go           # Analyzer Package (Netzwerk-Scanning, Web-Server, Mesh-Topologie)
 ├── agent/

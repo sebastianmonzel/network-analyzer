@@ -13,7 +13,7 @@ fi
 mkdir -p build
 
 echo "Baue Analyzer-Server..."
-go build -o "build/analyzer${SUFFIX}" .
+go build -o "build/analyzer${SUFFIX}" ./cmd/analyzer
 
 echo "Baue Agent..."
 go build -o "build/agent${SUFFIX}" ./agent
