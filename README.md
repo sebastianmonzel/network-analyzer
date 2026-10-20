@@ -51,7 +51,7 @@ go mod download
 ```bash
 bash build.sh
 ```
-Die Binärdateien werden passend zum Zielsystem in `build/` abgelegt.
+Die Binärdateien werden passend zum Zielsystem im Projektverzeichnis abgelegt.
 
 **Analyzer:**
 ```bash
@@ -100,6 +100,26 @@ Besuche: **http://localhost:8080**
 🎯 Hauptserver dynamisch gefunden: http://192.168.178.10:8080
 🚀 Agent v1.0 läuft auf 192.168.178.20:8081
 ```
+
+### Agent als Windows-Dienst installieren
+
+Baue den Agenten für Windows und öffne PowerShell im Projektverzeichnis mit Administratorrechten:
+
+```powershell
+.\agent.exe install
+.\agent.exe start
+```
+
+Der Dienst **Network Analyzer Agent** wird für den automatischen Start beim Systemstart eingerichtet. Er läuft standardmäßig als `LocalSystem` und stellt die Agent-Daten weiterhin unter `http://<agent-ip>:8081/data` bereit.
+
+Dienst stoppen oder entfernen:
+
+```powershell
+.\agent.exe stop
+.\agent.exe uninstall
+```
+
+Lege `agent.exe` vor der Installation an einen dauerhaften Speicherort. Der Dienst verweist auf genau diese Datei. Die Dienstbefehle müssen mit Administratorrechten ausgeführt werden.
 
 ## 🔧 Konfiguration
 
@@ -158,7 +178,13 @@ network-analyzer/
 │   └── analyzer/
 │       └── main.go            # Analyzer Entry-Point
 ├── analyzer/
-│   └── analyzer.go           # Analyzer Package (Netzwerk-Scanning, Web-Server, Mesh-Topologie)
+│   ├── analyzer.go           # Koordiniert einen Scan-Zyklus
+│   ├── devices.go            # Portnamen und Repeater-Zuordnung
+│   ├── mesh.go                # FRITZ!Box-Mesh und Darstellung
+│   ├── models.go              # Gemeinsame Datenstrukturen und Statistikzustand
+│   ├── network_probe.go       # Netzwerkerkennung, Messungen und Agent-Abfragen
+│   ├── persistence.go         # Laden und Speichern der Statistiken
+│   └── server.go              # Webserver und HTTP-API
 ├── agent/
 │   ├── main.go              # Agent Entry-Point
 │   ├── agent_service.go     # Start, Hintergrundjobs und HTTP-Endpunkt

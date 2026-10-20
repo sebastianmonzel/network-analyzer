@@ -13,9 +13,9 @@ fi
 mkdir -p build
 
 echo "Baue Analyzer-Server..."
-go build -o "build/analyzer${SUFFIX}" ./cmd/analyzer
+go build -o "analyzer${SUFFIX}" ./cmd/analyzer
 
 echo "Baue Agent..."
-go build -o "build/agent${SUFFIX}" ./agent
+go build -o "agent${SUFFIX}" ./agent
 
 echo "Build abgeschlossen."
