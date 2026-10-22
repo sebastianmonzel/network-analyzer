@@ -3,12 +3,102 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     margin: 0;
-    padding: 20px;
+    padding: 0 20px 20px;
+}
+
+.page-header {
+    padding: 24px 0 12px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4caf50;
 }
 
 h1 {
-    text-align: center;
+    margin: 0;
+}
+
+.main-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 8px 12px;
+    margin: 0 -20px 20px;
+    background: #181818;
+    border-bottom: 1px solid #333;
+}
+
+.navigation-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-right: 18px;
+    border-right: 1px solid #383838;
+}
+
+.navigation-group:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.navigation-heading {
+    padding: 0 6px;
+    color: #777;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.main-navigation a {
+    padding: 9px 12px;
+    border-radius: 6px;
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.main-navigation a:hover,
+.main-navigation a[aria-current="page"] {
+    color: #fff;
+    background: #2c2c2c;
+}
+
+.main-navigation a[aria-current="page"] {
+    box-shadow: inset 0 -2px #4caf50;
+}
+
+.navigation-count {
+    display: inline-block;
+    min-width: 1.5em;
+    margin-left: 4px;
+    padding: 1px 5px;
+    border-radius: 10px;
+    background: #383838;
     color: #4caf50;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.page-section[hidden] {
+    display: none;
+}
+
+.load-error {
+    padding: 16px;
+    border-left: 4px solid #f44336;
+    border-radius: 4px;
+    background: #2a1b1b;
+    color: #ffcdd2;
+}
+
+.page-section h2 {
+    margin: 0 0 20px;
 }
 
 .dashboard {
@@ -27,14 +117,174 @@ h1 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
+.agent-card {
+    border-left: 4px solid #2196f3;
+}
+
+.agent-card h3 {
+    margin-top: 0;
+}
+
+.internet-summary {
+    margin-bottom: 20px;
+}
+
+.internet-metric {
+    min-width: 220px;
+}
+
+.internet-metric h3 {
+    margin-top: 0;
+    color: #bbb;
+}
+
+.internet-metric p {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0 0;
+}
+
+.internet-metric p strong {
+    color: #4caf50;
+    font-size: 1.15em;
+}
+
+.internet-metric p span {
+    color: #aaa;
+    text-align: right;
+}
+
+.caller-card {
+    margin-bottom: 20px;
+    border-left: 4px solid #4caf50;
+}
+
+.caller-address {
+    margin: 0 0 8px;
+    color: #aaa;
+}
+
+.caller-address strong {
+    color: #e0e0e0;
+    font-family: monospace;
+}
+
+.caller-message {
+    margin: 0;
+}
+
+.caller-data {
+    align-items: flex-start;
+}
+
+.caller-data .card h3 {
+    margin-top: 0;
+}
+
+.caller-details {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+    gap: 8px 16px;
+    margin: 0;
+}
+
+.caller-details dt {
+    color: #999;
+}
+
+.caller-details dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.caller-mesh-card h3 {
+    margin-top: 0;
+}
+
+.caller-mesh-path {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 16px 0 0;
+    padding-left: 28px;
+}
+
+.caller-mesh-path li {
+    padding-left: 4px;
+}
+
+.caller-mesh-node {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 1px solid #444;
+    border-left: 4px solid #4caf50;
+    border-radius: 5px;
+    background: #252525;
+}
+
+.caller-mesh-node span {
+    color: #aaa;
+    font-family: monospace;
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+}
+
+.glossary {
+    margin-top: 28px;
+    padding: 20px;
+    border-top: 1px solid #333;
+    background: #181818;
+}
+
+.glossary h2 {
+    margin: 0 0 16px;
+    font-size: 1.25em;
+}
+
+.glossary-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 14px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.glossary-list dt {
+    margin-bottom: 4px;
+    color: #4caf50;
+    font-weight: 700;
+}
+
+.glossary-list dd {
+    margin: 0;
+    color: #bbb;
+    font-size: 0.92em;
+    line-height: 1.5;
+}
+
 canvas {
     max-height: 280px;
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+}
+
+.empty-state {
+    color: #888;
+    font-style: italic;
 }
 
 th, td {
@@ -85,4 +335,152 @@ th {
     padding-left: 9px;
     color: #ff9800;
     font-style: italic;
+}
+
+.mesh-updated {
+    margin: 0 0 8px;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.mesh-tree ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 28px;
+    position: relative;
+}
+
+.mesh-tree-root {
+    padding-left: 0 !important;
+}
+
+.mesh-tree li {
+    margin: 2px 0;
+    position: relative;
+}
+
+.mesh-tree li::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -16px;
+    height: calc(50% + 2px);
+    border-left: 1px solid #555;
+}
+
+.mesh-tree li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    width: 16px;
+    border-top: 1px solid #555;
+}
+
+.mesh-tree li:last-child::before {
+    height: calc(50% + 2px);
+    border-left: 1px solid #555;
+}
+
+.mesh-tree-root > li::before,
+.mesh-tree-root > li::after {
+    display: none;
+}
+
+.mesh-node {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 3px 8px;
+    border: 1px solid #444;
+    border-left: 4px solid #888;
+    border-radius: 4px;
+    background: #252525;
+    line-height: 1.2;
+}
+
+.mesh-node-active {
+    border-left-color: #4caf50;
+}
+
+.mesh-node-inactive {
+    border-left-color: #ff9800;
+    opacity: 0.8;
+}
+
+.mesh-node-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.mesh-node-status {
+    color: #4caf50;
+    font-size: 0.75em;
+}
+
+.mesh-node-inactive .mesh-node-status {
+    color: #ff9800;
+}
+
+.mesh-node-details {
+    color: #aaa;
+    font-family: monospace;
+    font-size: 0.75em;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 0 12px 12px;
+    }
+
+    .main-navigation {
+        margin-right: -12px;
+        margin-left: -12px;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+    }
+
+    .main-navigation a {
+        padding: 9px 10px;
+    }
+
+    .navigation-group {
+        flex-shrink: 0;
+        gap: 2px;
+        padding-right: 8px;
+    }
+
+    .navigation-heading {
+        padding: 0 3px;
+    }
+
+    .card {
+        min-width: 0;
+        padding: 14px;
+    }
+
+    .mesh-tree ul {
+        padding-left: 20px;
+    }
+
+    .mesh-node {
+        max-width: calc(100vw - 100px);
+        flex-wrap: wrap;
+        gap: 2px 8px;
+    }
+
+    .caller-mesh-path {
+        gap: 12px;
+    }
+
+    .caller-mesh-node {
+        min-width: 0;
+        max-width: calc(100vw - 100px);
+    }
 }

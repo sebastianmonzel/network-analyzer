@@ -193,9 +193,11 @@ network-analyzer/
 │   ├── agent_quality.go    # Latenz- und Jitter-Messung
 │   └── agent_update.go     # Versionsprüfung und Self-Update
 ├── static/
-│   ├── index.html           # Web-Dashboard (Frontend)
-│   ├── script.js            # JavaScript-Logik
-│   └── styles.css           # Styling
+│   ├── index.html           # Gemeinsames Layout und Navigation
+│   ├── bootstrap.js         # Lädt Ansichtsfragmente und Dashboard-Skript
+│   ├── script.js            # Dashboard-Logik
+│   ├── styles.css           # Gemeinsames Styling
+│   └── views/               # Einzelne Dashboard-Ansichten und Glossar
 ├── go.mod                    # Go-Abhängigkeiten
 ├── LICENSE.md               # Lizenzinformation
 ├── README.md                # Diese Datei

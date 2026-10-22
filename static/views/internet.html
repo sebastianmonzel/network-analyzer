@@ -1,0 +1,40 @@
+<section id="internet" class="page-section" aria-labelledby="internetTitle" hidden>
+    <h2 id="internetTitle">Internetqualität</h2>
+    <div class="dashboard internet-summary">
+        <div class="card internet-metric">
+            <h3>Server – WAN</h3>
+            <p><strong id="serverLatency">–</strong><span>Latenz</span></p>
+            <p><strong id="serverJitter">–</strong><span>Jitter</span></p>
+        </div>
+        <div class="card internet-metric">
+            <h3>Agenten – Durchschnitt</h3>
+            <p><strong id="agentLatency">–</strong><span>Latenz</span></p>
+            <p><strong id="agentJitter">–</strong><span>Jitter</span></p>
+        </div>
+        <div class="card internet-metric">
+            <h3>Messabdeckung</h3>
+            <p><strong id="agentMeasurements">–</strong><span>Agenten mit Messwerten</span></p>
+            <p><strong id="agentMeasurementsTotal">–</strong><span>Agenten insgesamt</span></p>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Internetmessungen der Agenten</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agent</th>
+                        <th>IP-Adresse</th>
+                        <th>Repeater / Zugangspunkt</th>
+                        <th>Latenz</th>
+                        <th>Jitter</th>
+                        <th>Letztes Update</th>
+                    </tr>
+                </thead>
+                <tbody id="internetAgentTable">
+                    <tr><td colspan="6" class="empty-state">Warte auf Agentenmessungen...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

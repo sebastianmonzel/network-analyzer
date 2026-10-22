@@ -1,0 +1,22 @@
+<section id="caller" class="page-section" aria-labelledby="callerTitle" hidden>
+    <h2 id="callerTitle">Aktueller Aufruferknoten</h2>
+    <div class="card caller-card">
+        <p class="caller-address">Ermittelte IP-Adresse: <strong id="callerIP">Wird ermittelt...</strong></p>
+        <p id="callerMessage" class="caller-message empty-state" aria-live="polite">Lade Knotendaten...</p>
+    </div>
+    <div class="dashboard caller-data">
+        <div id="callerDeviceCard" class="card" hidden>
+            <h3>Erkannte Gerätedaten</h3>
+            <dl id="callerDeviceDetails" class="caller-details"></dl>
+        </div>
+        <div id="callerAgentCard" class="card agent-card" hidden>
+            <h3>Agenten- und Verbindungsdaten</h3>
+            <dl id="callerAgentDetails" class="caller-details"></dl>
+        </div>
+    </div>
+    <div class="card caller-mesh-card">
+        <h3>Mein Platz in der Mesh-Hierarchie</h3>
+        <p id="callerMeshMessage" class="empty-state">Lade Mesh-Pfad...</p>
+        <ol id="callerMeshPath" class="caller-mesh-path" aria-label="Mesh-Pfad vom Router zum Aufrufer"></ol>
+    </div>
+</section>
