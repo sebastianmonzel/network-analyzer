@@ -67,6 +67,14 @@ go build -o agent.exe ./agent
 
 ### Analyzer starten
 
+Mit Build und anschließendem Start:
+
+```bash
+bash buildAndStartAnalyzer.sh
+```
+
+Alternativ eine bereits gebaute Binärdatei starten:
+
 ```bash
 ./analyzer.exe
 ```
@@ -90,6 +98,14 @@ Nutze Router 192.168.178.1 als DNS-Server.
 Besuche: **http://localhost:8080**
 
 ### Agent auf anderen Geräten starten
+
+Agent bauen und starten:
+
+```bash
+bash buildAndStartAgent.sh
+```
+
+Alternativ eine bereits gebaute Binärdatei starten:
 
 ```bash
 ./agent.exe

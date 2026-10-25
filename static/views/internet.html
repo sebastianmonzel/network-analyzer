@@ -15,6 +15,9 @@
             <h3>Messabdeckung</h3>
             <p><strong id="agentMeasurements">–</strong><span>Agenten mit Messwerten</span></p>
             <p><strong id="agentMeasurementsTotal">–</strong><span>Agenten insgesamt</span></p>
+            <p><strong id="wanSuccessRate">–</strong><span>Server-Erfolgsquote (letzte Prüfung)</span></p>
+            <p><strong id="wanMeasurementAge">–</strong><span>Alter des letzten Messwerts</span></p>
+            <p><strong id="wanLastCheckAge">–</strong><span>Letzte Serverprüfung</span></p>
         </div>
     </div>
     <div class="card">
@@ -28,11 +31,14 @@
                         <th>Repeater / Zugangspunkt</th>
                         <th>Latenz</th>
                         <th>Jitter</th>
-                        <th>Letztes Update</th>
+                        <th>Messalter</th>
+                        <th>Letzte Prüfung</th>
+                        <th>Erfolgsquote (letzte Prüfung)</th>
+                        <th>Serverkontakt</th>
                     </tr>
                 </thead>
                 <tbody id="internetAgentTable">
-                    <tr><td colspan="6" class="empty-state">Warte auf Agentenmessungen...</td></tr>
+                    <tr><td colspan="9" class="empty-state">Warte auf Agentenmessungen...</td></tr>
                 </tbody>
             </table>
         </div>

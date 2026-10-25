@@ -11,14 +11,18 @@ import (
 )
 
 type AgentPayload struct {
-	Hostname     string  `json:"hostname"`
-	IP           string  `json:"ip"`
-	Latency      float64 `json:"latency_ms"`
-	Jitter       float64 `json:"jitter_ms"`
-	WifiRSSI     int     `json:"wifi_rssi_dbm"`
-	AccessPoint  string  `json:"access_point"`
-	RepeaterName string  `json:"repeater_name"`
-	Version      string  `json:"version"`
+	Hostname          string  `json:"hostname"`
+	IP                string  `json:"ip"`
+	Latency           float64 `json:"latency_ms"`
+	Jitter            float64 `json:"jitter_ms"`
+	WifiRSSI          int     `json:"wifi_rssi_dbm"`
+	AccessPoint       string  `json:"access_point"`
+	RepeaterName      string  `json:"repeater_name"`
+	Version           string  `json:"version"`
+	LastCheckedAt     string  `json:"last_checked_at,omitempty"`
+	LastMeasurementAt string  `json:"last_measurement_at,omitempty"`
+	ProbeAttempts     int     `json:"probe_attempts"`
+	ProbeSuccesses    int     `json:"probe_successes"`
 }
 
 var (
@@ -37,7 +41,7 @@ func getLocalIP() string {
 
 func getWifiInfo() (int, string) {
 	rssi := 0
-	// setzt unter windows die WLAN-Access-Points; 
+	// setzt unter windows die WLAN-Access-Points;
 	// unter Linux wird stattdessen die SSID (WLAN-Name) ausgelesen.
 	accessPoint := "LAN / Unbekannt"
 

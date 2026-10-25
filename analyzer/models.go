@@ -15,23 +15,28 @@ type DeviceState struct {
 }
 
 type HistoryPoint struct {
-	Time       string  `json:"time"`
-	Active     int     `json:"active"`
-	AvgLatency float64 `json:"avg_latency"`
-	WanLatency float64 `json:"wan_latency_ms"`
-	WanJitter  float64 `json:"wan_jitter_ms"`
+	Time              string  `json:"time"`
+	Active            int     `json:"active"`
+	AvgLatency        float64 `json:"avg_latency"`
+	WanLatency        float64 `json:"wan_latency_ms"`
+	WanJitter         float64 `json:"wan_jitter_ms"`
+	WanProbeSuccesses int     `json:"wan_probe_successes"`
 }
 
 type AgentState struct {
-	Hostname     string  `json:"hostname"`
-	IP           string  `json:"ip"`
-	Latency      float64 `json:"latency_ms"`
-	Jitter       float64 `json:"jitter_ms"`
-	WifiRSSI     int     `json:"wifi_rssi_dbm"`
-	AccessPoint  string  `json:"access_point"`
-	RepeaterName string  `json:"repeater_name"`
-	Version      string  `json:"version"`
-	LastUpdated  string  `json:"last_updated"`
+	Hostname          string  `json:"hostname"`
+	IP                string  `json:"ip"`
+	Latency           float64 `json:"latency_ms"`
+	Jitter            float64 `json:"jitter_ms"`
+	WifiRSSI          int     `json:"wifi_rssi_dbm"`
+	AccessPoint       string  `json:"access_point"`
+	RepeaterName      string  `json:"repeater_name"`
+	Version           string  `json:"version"`
+	LastUpdated       string  `json:"last_updated"`
+	LastCheckedAt     string  `json:"last_checked_at,omitempty"`
+	LastMeasurementAt string  `json:"last_measurement_at,omitempty"`
+	ProbeAttempts     int     `json:"probe_attempts"`
+	ProbeSuccesses    int     `json:"probe_successes"`
 }
 
 type NetworkNode struct {
@@ -63,13 +68,17 @@ type Body struct {
 
 type NetworkStats struct {
 	sync.RWMutex
-	Devices           []DeviceState         `json:"devices"`
-	History           []HistoryPoint        `json:"history"`
-	Agents            map[string]AgentState `json:"agents"`
-	MeshTree          *NetworkNode          `json:"mesh_tree,omitempty"`
-	CurrentWanLatency float64               `json:"current_wan_latency"`
-	CurrentWanJitter  float64               `json:"current_wan_jitter"`
-	LastMeshUpdate    string                `json:"last_mesh_update"`
+	Devices              []DeviceState         `json:"devices"`
+	History              []HistoryPoint        `json:"history"`
+	Agents               map[string]AgentState `json:"agents"`
+	MeshTree             *NetworkNode          `json:"mesh_tree,omitempty"`
+	CurrentWanLatency    float64               `json:"current_wan_latency"`
+	CurrentWanJitter     float64               `json:"current_wan_jitter"`
+	WanLastCheckedAt     string                `json:"wan_last_checked_at,omitempty"`
+	WanLastMeasurementAt string                `json:"wan_last_measurement_at,omitempty"`
+	WanProbeAttempts     int                   `json:"wan_probe_attempts"`
+	WanProbeSuccesses    int                   `json:"wan_probe_successes"`
+	LastMeshUpdate       string                `json:"last_mesh_update"`
 }
 
 var stats = &NetworkStats{

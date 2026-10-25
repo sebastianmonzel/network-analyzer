@@ -183,11 +183,12 @@ func RunScanCycle(ipsToScan []string, routerIP string, networkState map[string]S
 		enrichDevicesWithMeshInfo(stats.MeshTree)
 	}
 	stats.History = append(stats.History, HistoryPoint{
-		Time:       time.Now().Format("15:04:05"),
-		Active:     activeHosts,
-		AvgLatency: avgLatency,
-		WanLatency: stats.CurrentWanLatency,
-		WanJitter:  stats.CurrentWanJitter,
+		Time:              time.Now().Format("15:04:05"),
+		Active:            activeHosts,
+		AvgLatency:        avgLatency,
+		WanLatency:        stats.CurrentWanLatency,
+		WanJitter:         stats.CurrentWanJitter,
+		WanProbeSuccesses: stats.WanProbeSuccesses,
 	})
 	if len(stats.History) > 120 {
 		stats.History = stats.History[1:]

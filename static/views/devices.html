@@ -1,5 +1,24 @@
 <section id="devices" class="page-section" aria-labelledby="devicesTitle" hidden>
     <h2 id="devicesTitle">Netzwerkgeräte</h2>
+    <div class="card device-access-point-card">
+        <h3>Aggregierte Werte pro Zugangspunkt</h3>
+        <p class="aggregation-note">Mittelwerte der aktuell online erkannten Geräte; Geräte ohne Messwert werden für die jeweilige Kennzahl ausgelassen. Die Diagramme verwenden feste Skalen (Latenz 0–200 ms, Jitter 0–50 ms). Die Markierungslinien zeigen die Grenzen zwischen Gut und Mittel sowie Mittel und Schlecht. Angezeigt werden die letzten bis zu 60 Wertänderungen im aktuellen Browser.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zugangspunkt</th>
+                        <th>Online-Geräte</th>
+                        <th>Ø Latenz</th>
+                        <th>Ø Jitter</th>
+                    </tr>
+                </thead>
+                <tbody id="deviceAccessPointTable">
+                    <tr><td colspan="4" class="empty-state">Berechne Zugangspunktwerte...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class="card">
         <div class="table-container">
             <table>

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net"
 	"net/http"
 	"os/exec"
@@ -112,17 +113,32 @@ func systemPing(ip string) (bool, time.Duration) {
 func measureWanQuality() {
 	var latencies []time.Duration
 	target := "8.8.8.8:53"
+	const attempts = 5
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < attempts; i++ {
 		start := time.Now()
 		conn, err := net.DialTimeout("tcp", target, 800*time.Millisecond)
 		if err == nil {
 			latencies = append(latencies, time.Since(start))
-			conn.Close()
+			if err := conn.Close(); err != nil {
+				log.Printf("WAN-Messverbindung konnte nicht geschlossen werden: %v", err)
+			}
 		}
-		time.Sleep(50 * time.Millisecond)
+		if i < attempts-1 {
+			time.Sleep(50 * time.Millisecond)
+		}
 	}
 
+	checkedAt := time.Now().UTC()
+	recordWANMeasurement(latencies, attempts, checkedAt)
+}
+
+func recordWANMeasurement(latencies []time.Duration, attempts int, checkedAt time.Time) {
+	stats.Lock()
+	defer stats.Unlock()
+	stats.WanLastCheckedAt = checkedAt.Format(time.RFC3339)
+	stats.WanProbeAttempts = attempts
+	stats.WanProbeSuccesses = len(latencies)
 	if len(latencies) == 0 {
 		return
 	}
@@ -139,13 +155,9 @@ func measureWanQuality() {
 		}
 	}
 
-	avg := float64((total / time.Duration(len(latencies))).Milliseconds())
-	jitter := float64((maxL - minL).Milliseconds())
-
-	stats.Lock()
-	stats.CurrentWanLatency = avg
-	stats.CurrentWanJitter = jitter
-	stats.Unlock()
+	stats.CurrentWanLatency = float64(total) / float64(len(latencies)) / float64(time.Millisecond)
+	stats.CurrentWanJitter = float64(maxL-minL) / float64(time.Millisecond)
+	stats.WanLastMeasurementAt = checkedAt.Format(time.RFC3339)
 }
 
 func scanHost(ip string, routerIP string, results chan<- ScanResult, wg *sync.WaitGroup) {
@@ -154,7 +166,7 @@ func scanHost(ip string, routerIP string, results chan<- ScanResult, wg *sync.Wa
 	systemPing(ip)
 
 	for _, port := range commonPorts {
-		target := fmt.Sprintf("%s:%s", ip, port)
+		target := net.JoinHostPort(ip, port)
 		start := time.Now()
 		conn, err := net.DialTimeout("tcp", target, 400*time.Millisecond)
 
