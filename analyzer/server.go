@@ -108,7 +108,7 @@ func StartWebServer() {
 
 	fmt.Println("\n=======================================================")
 	fmt.Println("🚀 WEBDASHBOARD GESTARTET: http://localhost:8080")
-	fmt.Println("=======================================================\n")
+	fmt.Print("=======================================================\n\n")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
