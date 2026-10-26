@@ -1,56 +1,368 @@
 const navigationLinks = document.querySelectorAll('.main-navigation a');
 const pageSections = document.querySelectorAll('.page-section');
 
-function createMeshNode(node) {
-    const item = document.createElement('li');
-    const card = document.createElement('div');
-    card.className = 'mesh-node' + (node.active ? ' mesh-node-active' : ' mesh-node-inactive');
+const meshNodeWidth = 230;
+const meshNodeHeight = 82;
+const meshNodePositions = new Map();
+const collapsedMeshNodes = new Set();
+let meshZoom = 1;
+let currentMeshTree = null;
+let currentMeshUpdated = '';
+let currentMeshItems = [];
+let meshDrag = null;
+let meshInitialPositionSet = false;
 
-    const heading = document.createElement('div');
-    heading.className = 'mesh-node-heading';
-    const icon = node.device_type === 'router' ? '🌐' :
-        node.device_type === 'repeater' ? '📶' : '💻';
-    const name = document.createElement('strong');
-    name.textContent = `${icon} ${node.name || 'Unbekanntes Gerät'}`;
-    heading.appendChild(name);
-
-    const status = document.createElement('span');
-    status.className = 'mesh-node-status';
-    status.textContent = node.active ? 'Online' : 'Offline';
-    heading.appendChild(status);
-    card.appendChild(heading);
-
-    const details = [node.ip, node.mac].filter(Boolean);
-    if (details.length > 0) {
-        const info = document.createElement('span');
-        info.className = 'mesh-node-details';
-        info.textContent = details.join(' · ');
-        card.appendChild(info);
-    }
-    item.appendChild(card);
-
-    if (Array.isArray(node.children) && node.children.length > 0) {
-        const children = document.createElement('ul');
-        node.children.forEach(child => children.appendChild(createMeshNode(child)));
-        item.appendChild(children);
-    }
-    return item;
+function meshNodeKey(node, path) {
+    return node.ip || node.mac || `${node.name || 'node'}:${path}`;
 }
 
-function updateMeshView(meshTree, lastUpdated) {
+function getMeshNodeKind(node) {
+    const type = (node.device_type || '').toLowerCase();
+    const name = (node.name || '').toLowerCase();
+    if (type === 'router' || name.includes('router') || name.includes('fritz!box')) return 'router';
+    if (type === 'powerline' || name.includes('powerline') || name.includes('power-line')) return 'powerline';
+    if (type === 'repeater' || name.includes('repeater')) return 'repeater';
+    return 'device';
+}
+
+function getMeshNodePriority(node) {
+    const priority = { router: 0, repeater: 1, powerline: 2, device: 3 };
+    return priority[getMeshNodeKind(node)];
+}
+
+function flattenMeshTree(node, path = '0', depth = 0, parentKey = null, items = []) {
+    if (!node) return items;
+    function visit(current, currentPath, currentDepth, currentParentKey) {
+        const key = meshNodeKey(current, currentPath);
+        const item = {
+            node: current,
+            key,
+            parentKey: currentParentKey,
+            depth: currentDepth,
+            children: []
+        };
+        items.push(item);
+        const children = Array.isArray(current.children) ? [...current.children] : [];
+        children.sort((a, b) => getMeshNodePriority(a) - getMeshNodePriority(b));
+        children.forEach((child, index) => {
+            item.children.push(visit(child, `${currentPath}.${index}`, currentDepth + 1, key));
+        });
+        return item;
+    }
+    visit(node, path, depth, parentKey);
+    return items;
+}
+
+function calculateMeshLayout(root) {
+    const positions = new Map();
+    const columns = 8;
+    const horizontalSpacing = meshNodeWidth + 36;
+    const verticalSpacing = meshNodeHeight + 72;
+    const dimensions = new Map();
+    function measure(item) {
+        if (item.children.length === 0) {
+            const size = { width: 1, height: 1 };
+            dimensions.set(item.key, size);
+            return size;
+        }
+
+        if (item.children.every(child => child.children.length === 0)) {
+            const columnCount = Math.min(columns, item.children.length);
+            const rowCount = Math.ceil(item.children.length / columnCount);
+            const size = { width: 1 + columnCount, height: rowCount };
+            dimensions.set(item.key, size);
+            return size;
+        }
+
+        const children = item.children.map(measure);
+        const size = {
+            width: 1 + Math.max(...children.map(child => child.width)),
+            height: children.reduce((total, child) => total + child.height, 0) + item.children.length - 1
+        };
+        dimensions.set(item.key, size);
+        return size;
+    }
+
+    function place(item, left, top) {
+        const size = dimensions.get(item.key);
+        positions.set(item.key, {
+            x: left,
+            y: top + (size.height - 1) * verticalSpacing / 2
+        });
+
+        if (item.children.length === 0) return;
+        if (item.children.every(child => child.children.length === 0)) {
+            const columnCount = Math.min(columns, item.children.length);
+            item.children.forEach((child, index) => {
+                positions.set(child.key, {
+                    x: left + horizontalSpacing + (index % columnCount) * horizontalSpacing,
+                    y: top + Math.floor(index / columnCount) * verticalSpacing
+                });
+            });
+            return;
+        }
+
+        let childTop = top;
+        item.children.forEach(child => {
+            const childSize = dimensions.get(child.key);
+            place(child, left + horizontalSpacing, childTop);
+            childTop += (childSize.height + 1) * verticalSpacing;
+        });
+    }
+
+    measure(root);
+    place(root, 60, 60);
+    return positions;
+}
+
+function renderMeshGraph() {
     const container = document.getElementById('meshTree');
     const updated = document.getElementById('meshUpdated');
-    updated.textContent = lastUpdated ? `Zuletzt aktualisiert: ${lastUpdated}` : '';
+    updated.textContent = currentMeshUpdated ? `Zuletzt aktualisiert: ${currentMeshUpdated}` : '';
 
-    if (!meshTree) {
+    if (!currentMeshTree) {
         container.innerHTML = '<p class="empty-state">Noch keine Mesh-Topologie verfügbar. Prüfe die Verbindung zur FRITZ!Box.</p>';
         return;
     }
 
-    const tree = document.createElement('ul');
-    tree.className = 'mesh-tree-root';
-    tree.appendChild(createMeshNode(meshTree));
-    container.replaceChildren(tree);
+    const nodes = flattenMeshTree(currentMeshTree);
+    currentMeshItems = nodes;
+    const defaultPositions = calculateMeshLayout(nodes[0]);
+    nodes.forEach(item => {
+        if (!meshNodePositions.has(item.key)) {
+            const position = defaultPositions.get(item.key);
+            if (!position || !Number.isFinite(position.x) || !Number.isFinite(position.y)) {
+                throw new Error(`Keine gültige Startposition für Mesh-Knoten "${item.key}"`);
+            }
+            meshNodePositions.set(item.key, { x: position.x, y: position.y });
+        }
+    });
+
+    const visible = new Set();
+    function setVisible(item, parentVisible = true) {
+        const isVisible = parentVisible;
+        if (isVisible) visible.add(item.key);
+        item.children.forEach(child => setVisible(child, isVisible && !collapsedMeshNodes.has(item.key)));
+    }
+    setVisible(nodes[0]);
+
+    const stage = document.createElement('div');
+    stage.className = 'mesh-graph-stage';
+    const graph = document.createElement('div');
+    graph.className = 'mesh-graph';
+    graph.style.transform = `scale(${meshZoom})`;
+
+    const edges = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    edges.classList.add('mesh-edges');
+    edges.setAttribute('aria-hidden', 'true');
+    nodes.forEach(item => {
+        if (!item.parentKey || !visible.has(item.key) || !visible.has(item.parentKey)) return;
+        const parentPosition = meshNodePositions.get(item.parentKey);
+        const position = meshNodePositions.get(item.key);
+        if (!parentPosition || !position ||
+            !Number.isFinite(parentPosition.x) || !Number.isFinite(parentPosition.y) ||
+            !Number.isFinite(position.x) || !Number.isFinite(position.y)) {
+            throw new Error(`Ungültige Position für Mesh-Verbindung zu "${item.key}"`);
+        }
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        line.classList.add('mesh-edge');
+        line.dataset.meshChild = item.key;
+        const startX = parentPosition.x + meshNodeWidth;
+        const startY = parentPosition.y + meshNodeHeight / 2;
+        const endX = position.x;
+        const endY = position.y + meshNodeHeight / 2;
+        const bendX = startX + (endX - startX) / 2;
+        line.setAttribute('d', `M ${startX} ${startY} C ${bendX} ${startY}, ${bendX} ${endY}, ${endX} ${endY}`);
+        edges.appendChild(line);
+    });
+    graph.appendChild(edges);
+
+    nodes.forEach(item => {
+        const { node, key } = item;
+        const position = meshNodePositions.get(key);
+        const card = document.createElement('article');
+        card.className = `mesh-node-card ${node.active ? 'mesh-node-active' : 'mesh-node-inactive'}`;
+        card.dataset.meshKey = key;
+        card.style.left = `${position.x}px`;
+        card.style.top = `${position.y}px`;
+        card.hidden = !visible.has(key);
+        card.addEventListener('pointerdown', event => startMeshDrag(event, card));
+
+        const heading = document.createElement('div');
+        heading.className = 'mesh-node-heading';
+        const kind = getMeshNodeKind(node);
+        const icon = kind === 'router' ? '🌐' :
+            kind === 'repeater' ? '📡' :
+                kind === 'powerline' ? '🔌' : '💻';
+        card.classList.add(`mesh-node-${kind}`);
+        const name = document.createElement('strong');
+        name.textContent = `${icon} ${node.name || 'Unbekanntes Gerät'}`;
+        heading.appendChild(name);
+
+        const status = document.createElement('span');
+        status.className = 'mesh-node-status';
+        status.textContent = node.active ? 'Online' : 'Offline';
+        heading.appendChild(status);
+        card.appendChild(heading);
+
+        const details = [node.ip, node.mac, node.manufacturer].filter(Boolean);
+        if (details.length > 0) {
+            const info = document.createElement('span');
+            info.className = 'mesh-node-details';
+            info.textContent = details.join(' · ');
+            card.appendChild(info);
+        }
+
+        if (item.children.length > 0) {
+            const toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'mesh-node-toggle';
+            const collapsed = collapsedMeshNodes.has(key);
+            toggle.textContent = collapsed ? '+' : '−';
+            toggle.setAttribute('aria-expanded', String(!collapsed));
+            toggle.setAttribute('aria-label', `${collapsed ? 'Untergeräte einblenden' : 'Untergeräte ausblenden'}: ${node.name || 'Gerät'}`);
+            toggle.addEventListener('click', () => {
+                if (collapsedMeshNodes.has(key)) collapsedMeshNodes.delete(key);
+                else collapsedMeshNodes.add(key);
+                renderMeshGraph();
+            });
+            card.appendChild(toggle);
+        }
+        graph.appendChild(card);
+    });
+    stage.appendChild(graph);
+    container.replaceChildren(stage);
+    updateMeshGraphPositions(graph);
+    if (!meshInitialPositionSet) {
+        const rootPosition = meshNodePositions.get(nodes[0].key);
+        container.scrollTop = Math.max(0, rootPosition.y - container.clientHeight / 2 + meshNodeHeight / 2);
+        meshInitialPositionSet = true;
+    }
+}
+
+function startMeshDrag(event, card) {
+    if (event.button !== 0 || event.target.closest('button')) return;
+    const graph = card.closest('.mesh-graph');
+    const key = card.dataset.meshKey;
+    meshDrag = {
+        graph,
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        card,
+        key,
+        position: { ...meshNodePositions.get(key) }
+    };
+    card.classList.add('mesh-node-dragging');
+    event.preventDefault();
+}
+
+window.addEventListener('pointermove', event => {
+    if (!meshDrag || event.pointerId !== meshDrag.pointerId) return;
+    const dx = (event.clientX - meshDrag.startX) / meshZoom;
+    const dy = (event.clientY - meshDrag.startY) / meshZoom;
+    meshNodePositions.set(meshDrag.key, {
+        x: Math.max(0, meshDrag.position.x + dx),
+        y: Math.max(0, meshDrag.position.y + dy)
+    });
+    updateMeshGraphPositions(meshDrag.graph);
+});
+
+function finishMeshDrag(event) {
+    if (!meshDrag || event.pointerId !== meshDrag.pointerId) return;
+    meshDrag.card.classList.remove('mesh-node-dragging');
+    meshDrag = null;
+}
+
+window.addEventListener('pointerup', finishMeshDrag);
+window.addEventListener('pointercancel', finishMeshDrag);
+
+function updateMeshGraphPositions(graph) {
+    if (!graph) return;
+    const nodes = currentMeshItems;
+    const cards = new Map(
+        Array.from(graph.querySelectorAll('.mesh-node-card'), card => [card.dataset.meshKey, card])
+    );
+    const maxX = Math.max(800, ...nodes.map(item => meshNodePositions.get(item.key).x + meshNodeWidth + 60));
+    const maxY = Math.max(260, ...nodes.map(item => meshNodePositions.get(item.key).y + meshNodeHeight + 60));
+    graph.style.width = `${maxX}px`;
+    graph.style.height = `${maxY}px`;
+    graph.style.transform = `scale(${meshZoom})`;
+    const stage = graph.parentElement;
+    stage.style.width = `${maxX * meshZoom}px`;
+    stage.style.height = `${maxY * meshZoom}px`;
+
+    const svg = graph.querySelector('.mesh-edges');
+    svg.setAttribute('width', String(maxX));
+    svg.setAttribute('height', String(maxY));
+    graph.querySelectorAll('.mesh-node-card').forEach(card => {
+        const position = meshNodePositions.get(card.dataset.meshKey);
+        card.style.left = `${position.x}px`;
+        card.style.top = `${position.y}px`;
+    });
+    graph.querySelectorAll('.mesh-edge').forEach(edge => {
+        const child = nodes.find(item => item.key === edge.dataset.meshChild);
+        if (!child) return;
+        const parentCard = cards.get(child.parentKey);
+        const childCard = cards.get(child.key);
+        edge.hidden = !parentCard || !childCard || parentCard.hidden || childCard.hidden;
+        if (edge.hidden) return;
+        const parentPosition = meshNodePositions.get(child.parentKey);
+        const position = meshNodePositions.get(child.key);
+        const startX = parentPosition.x + meshNodeWidth;
+        const startY = parentPosition.y + meshNodeHeight / 2;
+        const endX = position.x;
+        const endY = position.y + meshNodeHeight / 2;
+        const bendX = startX + (endX - startX) / 2;
+        edge.setAttribute('d', `M ${startX} ${startY} C ${bendX} ${startY}, ${bendX} ${endY}, ${endX} ${endY}`);
+    });
+}
+
+function setMeshZoom(nextZoom) {
+    meshZoom = Math.min(2.5, Math.max(0.5, Math.round(nextZoom * 10) / 10));
+    const level = document.getElementById('meshZoomLevel');
+    level.textContent = `${Math.round(meshZoom * 100)} %`;
+    const graph = document.querySelector('#meshTree .mesh-graph');
+    if (graph) updateMeshGraphPositions(graph);
+}
+
+document.getElementById('meshZoomIn').addEventListener('click', () => setMeshZoom(meshZoom + 0.1));
+document.getElementById('meshZoomOut').addEventListener('click', () => setMeshZoom(meshZoom - 0.1));
+document.getElementById('meshZoomReset').addEventListener('click', () => setMeshZoom(1));
+document.getElementById('meshTree').addEventListener('wheel', event => {
+    if (!event.ctrlKey || !currentMeshTree) return;
+    event.preventDefault();
+    setMeshZoom(meshZoom + (event.deltaY < 0 ? 0.1 : -0.1));
+}, { passive: false });
+
+const meshVisualization = document.getElementById('meshVisualization');
+const meshFullscreenToggle = document.getElementById('meshFullscreenToggle');
+const meshFullscreenMessage = document.getElementById('meshFullscreenMessage');
+
+meshFullscreenToggle.addEventListener('click', async () => {
+    meshFullscreenMessage.textContent = '';
+    try {
+        if (document.fullscreenElement === meshVisualization) {
+            await document.exitFullscreen();
+        } else {
+            await meshVisualization.requestFullscreen();
+        }
+    } catch (error) {
+        console.error('Vollbildmodus konnte nicht umgeschaltet werden:', error);
+        meshFullscreenMessage.textContent = 'Der Vollbildmodus konnte nicht gestartet werden. Bitte prüfe die Browserberechtigung.';
+    }
+});
+
+document.addEventListener('fullscreenchange', () => {
+    const isFullscreen = document.fullscreenElement === meshVisualization;
+    meshFullscreenToggle.textContent = isFullscreen ? 'Vollbild verlassen' : 'Vollbild öffnen';
+    meshFullscreenToggle.setAttribute('aria-pressed', String(isFullscreen));
+});
+
+function updateMeshView(meshTree, lastUpdated) {
+    currentMeshTree = meshTree;
+    currentMeshUpdated = lastUpdated || '';
+    renderMeshGraph();
 }
 
 function findMeshPath(node, targetIP) {
@@ -102,8 +414,10 @@ function appendAgentMeshPath(tableBody, agent, meshTree) {
 
         const entry = document.createElement('span');
         entry.className = 'agent-mesh-path-node';
-        const icon = node.device_type === 'router' ? '🌐' :
-            node.device_type === 'repeater' ? '📶' : '💻';
+        const kind = getMeshNodeKind(node);
+        const icon = kind === 'router' ? '🌐' :
+            kind === 'repeater' ? '📡' :
+                kind === 'powerline' ? '🔌' : '💻';
         entry.textContent = `${icon} ${node.name || node.ip || 'Unbekannter Knoten'}`;
         cell.appendChild(entry);
     });
@@ -570,6 +884,7 @@ async function updateCallerView() {
                 ['Hostname', device.hostname],
                 ['Status', device.status],
                 ['MAC-Adresse', device.mac],
+                ['Hersteller', device.manufacturer],
                 ['Erkannter Dienst', device.port],
                 ['Verbunden via', [device.mesh_icon, device.connected_via].filter(Boolean).join(' ')],
                 ['Latenz', formatMilliseconds(device.latency_ms), 'latency', Number(device.latency_ms) > 0],
@@ -601,13 +916,16 @@ async function updateCallerView() {
                 const card = document.createElement('div');
                 card.className = 'caller-mesh-node';
 
-                const typeIcon = node.device_type === 'router' ? '🌐' :
-                    node.device_type === 'repeater' ? '📶' : '💻';
+                const kind = getMeshNodeKind(node);
+                const typeIcon = kind === 'router' ? '🌐' :
+                    kind === 'repeater' ? '📡' :
+                        kind === 'powerline' ? '🔌' : '💻';
+                card.classList.add(`caller-mesh-${kind}`);
                 const name = document.createElement('strong');
                 name.textContent = `${typeIcon} ${node.name || 'Unbekanntes Gerät'}`;
                 card.appendChild(name);
 
-                const details = [node.ip, node.mac].filter(Boolean);
+                const details = [node.ip, node.mac, node.manufacturer].filter(Boolean);
                 if (details.length > 0) {
                     const info = document.createElement('span');
                     info.textContent = details.join(' · ');
@@ -837,6 +1155,7 @@ async function updateDashboard() {
             const macCell = row.insertCell();
             macCell.className = 'mac-text';
             macCell.textContent = d.mac || '–';
+            row.insertCell().textContent = d.manufacturer || 'Unbekannt';
             row.insertCell().textContent = d.hostname || '–';
 
             const meshCell = row.insertCell();

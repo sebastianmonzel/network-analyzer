@@ -497,70 +497,206 @@ th {
     font-size: 0.9em;
 }
 
-.mesh-tree ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 28px;
-    position: relative;
+.mesh-help {
+    margin: 0 0 14px;
+    color: #999;
+    font-size: 0.88em;
 }
 
-.mesh-tree-root {
-    padding-left: 0 !important;
+.mesh-visualization {
+    min-width: 0;
 }
 
-.mesh-tree li {
-    margin: 2px 0;
-    position: relative;
+.mesh-visualization-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
-.mesh-tree li::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -16px;
-    height: calc(50% + 2px);
-    border-left: 1px solid #555;
+.mesh-fullscreen-toggle {
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 1px solid #4a555e;
+    border-radius: 5px;
+    background: #2a3035;
+    color: #e0e0e0;
+    cursor: pointer;
+    font: inherit;
 }
 
-.mesh-tree li::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -16px;
-    width: 16px;
-    border-top: 1px solid #555;
+.mesh-fullscreen-toggle:hover,
+.mesh-fullscreen-toggle:focus-visible {
+    border-color: #81c784;
+    outline: none;
+    color: #81c784;
 }
 
-.mesh-tree li:last-child::before {
-    height: calc(50% + 2px);
-    border-left: 1px solid #555;
+.mesh-fullscreen-message {
+    margin: 0 0 8px;
+    color: #ffb74d;
+    font-size: 0.88em;
 }
 
-.mesh-tree-root > li::before,
-.mesh-tree-root > li::after {
+.mesh-fullscreen-message:empty {
     display: none;
 }
 
-.mesh-node {
-    display: inline-flex;
+.mesh-visualization:fullscreen {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 20px;
+    background: #121212;
+}
+
+.mesh-visualization:fullscreen .mesh-tree {
+    min-height: 0;
+    max-height: none;
+    flex: 1;
+}
+
+.mesh-zoom-controls {
+    display: flex;
     align-items: center;
     gap: 8px;
-    max-width: 100%;
-    padding: 3px 8px;
-    border: 1px solid #444;
-    border-left: 4px solid #888;
-    border-radius: 4px;
-    background: #252525;
-    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.mesh-zoom-controls button {
+    min-width: 34px;
+    min-height: 32px;
+    border: 1px solid #4a555e;
+    border-radius: 5px;
+    background: #2a3035;
+    color: #e0e0e0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.mesh-zoom-controls button:hover,
+.mesh-zoom-controls button:focus-visible {
+    border-color: #81c784;
+    outline: none;
+    color: #81c784;
+}
+
+.mesh-zoom-controls output {
+    min-width: 48px;
+    color: #c8e6c9;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.mesh-zoom-controls span {
+    margin-left: 4px;
+    color: #888;
+    font-size: 0.82em;
+}
+
+.mesh-tree {
+    height: min(82vh, 960px);
+    min-height: 520px;
+    overflow: auto;
+    border: 1px solid #343a40;
+    border-radius: 8px;
+    background-color: #171a1d;
+    background-image: radial-gradient(#394047 1px, transparent 1px);
+    background-size: 22px 22px;
+    overscroll-behavior: contain;
+}
+
+.mesh-graph-stage {
+    position: relative;
+}
+
+.mesh-graph {
+    position: relative;
+    transform-origin: top left;
+}
+
+.mesh-edges {
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.mesh-edge {
+    fill: none;
+    stroke: #607d8b;
+    stroke-width: 2;
+}
+
+.mesh-node-card {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    width: 230px;
+    min-height: 82px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 38px 12px 14px;
+    border: 1px solid #45515a;
+    border-left: 4px solid #78909c;
+    border-radius: 8px;
+    background: #252b30;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+    cursor: grab;
+    line-height: 1.25;
+    touch-action: none;
+    user-select: none;
+}
+
+.mesh-node-card[hidden] {
+    display: none;
+}
+
+.mesh-node-card:hover {
+    z-index: 2;
+    border-color: #78909c;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
+}
+
+.mesh-node-card:active,
+.mesh-node-dragging {
+    z-index: 3;
+    cursor: grabbing;
 }
 
 .mesh-node-active {
     border-left-color: #4caf50;
 }
 
+.mesh-node-router {
+    border-color: #42a5f5;
+    background: #202d38;
+}
+
+.mesh-node-repeater {
+    border-color: #ab7cdb;
+    background: #2c2635;
+}
+
+.mesh-node-powerline {
+    border-color: #ffca28;
+    background: #332f22;
+}
+
+.mesh-node-device {
+    border-color: #607d8b;
+    background: #252b30;
+}
+
 .mesh-node-inactive {
     border-left-color: #ff9800;
-    opacity: 0.8;
+    opacity: 0.82;
 }
 
 .mesh-node-heading {
@@ -568,16 +704,20 @@ th {
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    white-space: nowrap;
+}
+
+.mesh-node-heading strong {
+    overflow-wrap: anywhere;
 }
 
 .mesh-node-status {
-    color: #4caf50;
+    flex: 0 0 auto;
+    color: #81c784;
     font-size: 0.75em;
 }
 
 .mesh-node-inactive .mesh-node-status {
-    color: #ff9800;
+    color: #ffb74d;
 }
 
 .mesh-node-details {
@@ -585,6 +725,29 @@ th {
     font-family: monospace;
     font-size: 0.75em;
     overflow-wrap: anywhere;
+}
+
+.mesh-node-toggle {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 25px;
+    height: 25px;
+    transform: translateY(-50%);
+    border: 1px solid #56616a;
+    border-radius: 50%;
+    background: #333b41;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+.mesh-node-toggle:hover,
+.mesh-node-toggle:focus-visible {
+    border-color: #81c784;
+    outline: none;
+    color: #81c784;
 }
 
 @media (max-width: 640px) {
@@ -619,14 +782,22 @@ th {
         padding: 14px;
     }
 
-    .mesh-tree ul {
-        padding-left: 20px;
+    .mesh-tree {
+        height: 78vh;
+        min-height: 420px;
     }
 
-    .mesh-node {
-        max-width: calc(100vw - 100px);
+    .mesh-visualization-toolbar {
+        align-items: flex-start;
+    }
+
+    .mesh-zoom-controls {
         flex-wrap: wrap;
-        gap: 2px 8px;
+    }
+
+    .mesh-zoom-controls span {
+        flex-basis: 100%;
+        margin-left: 0;
     }
 
     .caller-mesh-path {

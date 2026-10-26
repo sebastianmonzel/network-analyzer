@@ -71,15 +71,37 @@ func fetchHostsFromDevice(deviceIP string) ([]*NetworkNode, error) {
 		}
 
 		hosts = append(hosts, &NetworkNode{
-			Name:       res.HostName,
-			IP:         res.IPAddress,
-			MAC:        res.MACAddress,
-			DeviceType: "client",
-			Active:     res.Active,
+			Name:         res.HostName,
+			IP:           res.IPAddress,
+			MAC:          res.MACAddress,
+			Manufacturer: manufacturerForMAC(res.MACAddress),
+			DeviceType:   "client",
+			Active:       res.Active,
 		})
 	}
 
 	return hosts, nil
+}
+
+func meshInfrastructureType(name string) (string, bool) {
+	name = strings.ToLower(name)
+	if strings.Contains(name, "powerline") || strings.Contains(name, "power-line") {
+		return "powerline", true
+	}
+	if strings.Contains(name, "repeater") {
+		return "repeater", true
+	}
+	return "", false
+}
+
+func appendMeshClients(parent *NetworkNode, hosts []*NetworkNode, seenIPs map[string]bool, showOnlyActive bool) {
+	for _, client := range hosts {
+		if seenIPs[client.IP] || (showOnlyActive && !client.Active) {
+			continue
+		}
+		parent.Children = append(parent.Children, client)
+		seenIPs[client.IP] = true
+	}
 }
 
 func buildMeshTree(boxIP string, showOnlyActive bool) *NetworkNode {
@@ -99,67 +121,32 @@ func buildMeshTree(boxIP string, showOnlyActive bool) *NetworkNode {
 		Active:     true,
 	}
 
-	var repeaterIPs []string
-	for _, h := range boxHosts {
-		if strings.Contains(strings.ToLower(h.Name), "repeater") || strings.Contains(strings.ToLower(h.Name), "powerline") {
-			if showOnlyActive && !h.Active {
-				continue
-			}
-			repeaterIPs = append(repeaterIPs, h.IP)
-		}
-	}
-
+	var infrastructureNodes []*NetworkNode
 	seenIPs := make(map[string]bool)
 	seenIPs[boxIP] = true
+	for _, h := range boxHosts {
+		deviceType, isInfrastructure := meshInfrastructureType(h.Name)
+		if !isInfrastructure || (showOnlyActive && !h.Active) {
+			continue
+		}
+		node := *h
+		node.DeviceType = deviceType
+		node.Manufacturer = manufacturerForMAC(node.MAC)
+		node.Children = nil
+		infrastructureNodes = append(infrastructureNodes, &node)
+		seenIPs[h.IP] = true
+	}
 
-	for _, repIP := range repeaterIPs {
-		repHosts, err := fetchHostsFromDevice(repIP)
+	for _, infrastructureNode := range infrastructureNodes {
+		repHosts, err := fetchHostsFromDevice(infrastructureNode.IP)
 		if err != nil {
-			continue
+			fmt.Printf("[Mesh] Geräteliste von %s (%s) konnte nicht abgerufen werden: %v\n", infrastructureNode.Name, infrastructureNode.IP, err)
 		}
-
-		repName := "FRITZ!Repeater"
-		for _, h := range boxHosts {
-			if h.IP == repIP {
-				repName = h.Name
-				seenIPs[h.IP] = true
-				break
-			}
-		}
-
-		repNode := &NetworkNode{
-			Name:       repName,
-			IP:         repIP,
-			DeviceType: "repeater",
-			Active:     true,
-		}
-
-		for _, client := range repHosts {
-			if client.IP == boxIP || client.IP == repIP {
-				continue
-			}
-			if showOnlyActive && !client.Active {
-				continue
-			}
-			repNode.Children = append(repNode.Children, client)
-			seenIPs[client.IP] = true
-		}
-
-		if len(repNode.Children) > 0 || !showOnlyActive {
-			root.Children = append(root.Children, repNode)
-		}
+		appendMeshClients(infrastructureNode, repHosts, seenIPs, showOnlyActive)
+		root.Children = append(root.Children, infrastructureNode)
 	}
 
-	for _, client := range boxHosts {
-		if seenIPs[client.IP] {
-			continue
-		}
-		if showOnlyActive && !client.Active {
-			continue
-		}
-		root.Children = append(root.Children, client)
-		seenIPs[client.IP] = true
-	}
+	appendMeshClients(root, boxHosts, seenIPs, showOnlyActive)
 
 	return root
 }
@@ -187,6 +174,8 @@ func buildIPToParentMap(node *NetworkNode, parentName string, parentIcon string,
 		icon = "🌐"
 	case "repeater":
 		icon = "📡"
+	case "powerline":
+		icon = "🔌"
 	default:
 		icon = "💻"
 	}
@@ -197,12 +186,16 @@ func buildIPToParentMap(node *NetworkNode, parentName string, parentIcon string,
 				"parent_name": node.Name,
 				"parent_icon": icon,
 			}
-		} else if child.DeviceType == "repeater" {
+		} else if child.DeviceType == "repeater" || child.DeviceType == "powerline" {
 			ipMap[child.IP] = map[string]string{
 				"parent_name": node.Name,
 				"parent_icon": icon,
 			}
-			buildIPToParentMap(child, child.Name, "📡", ipMap)
+			childIcon := "📡"
+			if child.DeviceType == "powerline" {
+				childIcon = "🔌"
+			}
+			buildIPToParentMap(child, child.Name, childIcon, ipMap)
 		}
 	}
 }

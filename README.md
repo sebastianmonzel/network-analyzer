@@ -8,6 +8,7 @@ Ein umfassendes Go-Programm zur Überwachung und Analyse von Netzwerktopologien,
 - **Automatische Subnet-Erkennung**: Erkennt das lokale Netzwerk automatisch
 - **Echtzeit-Netzwerk-Scanning**: Kontinuierliche Überwachung aller Geräte
 - **Protokoll-Tracking**: Automatische Erkennung von Diensten auf offenen Ports
+- **Herstellererkennung**: Lokale Zuordnung von MAC-Präfixen zu Herstellern anhand der IEEE-Registrierung
 - **Status-Monitoring**: Online/Offline-Status mit Fehlertoleranz
 - **IP-Wechsel-Erkennung**: Verfolgung von Geräten, die die IP wechseln
 - **WAN-Qualitätsmessung**: Monitoring von Latenz und Jitter zum Internet
@@ -52,6 +53,7 @@ go mod download
 bash build.sh
 ```
 Die Binärdateien werden passend zum Zielsystem im Projektverzeichnis abgelegt.
+Die Dashboard-Dateien aus `static/` sind im Analyzer eingebettet. Nach Änderungen an der Weboberfläche muss der Analyzer deshalb neu gebaut werden.
 
 **Analyzer:**
 ```bash
@@ -138,6 +140,12 @@ Dienst stoppen oder entfernen:
 Lege `agent.exe` vor der Installation an einen dauerhaften Speicherort. Der Dienst verweist auf genau diese Datei. Die Dienstbefehle müssen mit Administratorrechten ausgeführt werden.
 
 ## 🔧 Konfiguration
+
+### MAC-Herstellererkennung
+
+Der Analyzer ordnet MAC-Präfixe lokal dem in der IEEE-Registrierung eingetragenen Unternehmen zu. Die gekürzte Datenbank `analyzer/oui.tsv` enthält MA-L-, MA-M- und MA-S-Präfixe aus den öffentlichen [IEEE-Registrierungen](https://standards-oui.ieee.org/), Stand 25.10.2026. MAC-Adressen werden dafür nicht an externe Dienste übertragen.
+
+Bei zufälligen beziehungsweise lokal verwalteten MAC-Adressen wird absichtlich kein Hersteller angezeigt. Der Registry-Eintrag identifiziert außerdem den zugewiesenen Hersteller, nicht zwingend die Marke des fertigen Geräts.
 
 ### Repeater-Namen anpassen
 

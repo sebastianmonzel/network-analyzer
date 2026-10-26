@@ -2,8 +2,24 @@
     <h2 id="meshTitle">Mesh-Hierarchie</h2>
     <div class="card">
         <p id="meshUpdated" class="mesh-updated">Warte auf Mesh-Daten...</p>
-        <div id="meshTree" class="mesh-tree" aria-live="polite">
-            <p class="empty-state">Lade Mesh-Hierarchie...</p>
+        <p class="mesh-help">Knoten ziehen, um das Netz anzuordnen. Über die Schaltfläche am Knoten lassen sich untergeordnete Geräte ein- und ausklappen.</p>
+        <div id="meshVisualization" class="mesh-visualization">
+            <div class="mesh-visualization-toolbar">
+                <div class="mesh-zoom-controls" role="group" aria-label="Mesh-Ansicht vergrößern oder verkleinern">
+                    <button id="meshZoomOut" type="button" aria-label="Mesh-Ansicht verkleinern" title="Verkleinern">−</button>
+                    <output id="meshZoomLevel" aria-live="polite">100 %</output>
+                    <button id="meshZoomIn" type="button" aria-label="Mesh-Ansicht vergrößern" title="Vergrößern">+</button>
+                    <button id="meshZoomReset" type="button">Zurücksetzen</button>
+                    <span>Strg + Mausrad zum Zoomen</span>
+                </div>
+                <button id="meshFullscreenToggle" class="mesh-fullscreen-toggle" type="button" aria-pressed="false">
+                    Vollbild öffnen
+                </button>
+            </div>
+            <p id="meshFullscreenMessage" class="mesh-fullscreen-message" role="status" aria-live="polite"></p>
+            <div id="meshTree" class="mesh-tree" aria-live="polite">
+                <p class="empty-state">Lade Mesh-Hierarchie...</p>
+            </div>
         </div>
     </div>
 </section>

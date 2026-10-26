@@ -9,13 +9,19 @@ import (
 	"net/netip"
 	"os"
 	"strings"
+
+	staticassets "network-scanner/static"
 )
 
 const currentAgentVersion = "1.0"
 const agentBinaryFile = "agent_update" // Unter Windows: "agent_update.exe"
 
 func StartWebServer() {
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	staticFiles := http.FileServer(http.FS(staticassets.Files))
+	http.Handle("/static/", http.StripPrefix("/static/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "no-cache")
+		staticFiles.ServeHTTP(w, r)
+	})))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
@@ -23,7 +29,8 @@ func StartWebServer() {
 			return
 		}
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		http.ServeFile(w, r, "static/index.html")
+		w.Header().Set("Cache-Control", "no-cache")
+		http.ServeFileFS(w, r, staticassets.Files, "index.html")
 	})
 
 	http.HandleFunc("/api/data", func(w http.ResponseWriter, r *http.Request) {
@@ -177,18 +184,19 @@ func findMeshPath(root *NetworkNode, targetIP string) []*NetworkNode {
 	}
 
 	if sameIP(root.IP, targetIP) {
-		return []*NetworkNode{{Name: root.Name, IP: root.IP, MAC: root.MAC, DeviceType: root.DeviceType, Active: root.Active}}
+		return []*NetworkNode{{Name: root.Name, IP: root.IP, MAC: root.MAC, Manufacturer: root.Manufacturer, DeviceType: root.DeviceType, Active: root.Active}}
 	}
 
 	for _, child := range root.Children {
 		path := findMeshPath(child, targetIP)
 		if path != nil {
 			node := &NetworkNode{
-				Name:       root.Name,
-				IP:         root.IP,
-				MAC:        root.MAC,
-				DeviceType: root.DeviceType,
-				Active:     root.Active,
+				Name:         root.Name,
+				IP:           root.IP,
+				MAC:          root.MAC,
+				Manufacturer: root.Manufacturer,
+				DeviceType:   root.DeviceType,
+				Active:       root.Active,
 			}
 			return append([]*NetworkNode{node}, path...)
 		}

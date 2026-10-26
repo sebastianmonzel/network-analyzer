@@ -162,6 +162,7 @@ func RunScanCycle(ipsToScan []string, routerIP string, networkState map[string]S
 		webDevices = append(webDevices, DeviceState{
 			IP:           res.IP,
 			MAC:          macVal,
+			Manufacturer: manufacturerForMAC(macVal),
 			Hostname:     res.Hostname,
 			Port:         getServiceName(res.Port),
 			Latency:      float64(res.Latency.Milliseconds()),

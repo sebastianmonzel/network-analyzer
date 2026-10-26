@@ -5,6 +5,7 @@ import "sync"
 type DeviceState struct {
 	IP           string  `json:"ip"`
 	MAC          string  `json:"mac"`
+	Manufacturer string  `json:"manufacturer,omitempty"`
 	Hostname     string  `json:"hostname"`
 	Port         string  `json:"port"`
 	Latency      float64 `json:"latency_ms"`
@@ -40,12 +41,13 @@ type AgentState struct {
 }
 
 type NetworkNode struct {
-	Name       string         `json:"name"`
-	IP         string         `json:"ip"`
-	MAC        string         `json:"mac"`
-	DeviceType string         `json:"device_type"`
-	Active     bool           `json:"active"`
-	Children   []*NetworkNode `json:"children,omitempty"`
+	Name         string         `json:"name"`
+	IP           string         `json:"ip"`
+	MAC          string         `json:"mac"`
+	Manufacturer string         `json:"manufacturer,omitempty"`
+	DeviceType   string         `json:"device_type"`
+	Active       bool           `json:"active"`
+	Children     []*NetworkNode `json:"children,omitempty"`
 }
 
 type Envelope struct {
